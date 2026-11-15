@@ -1,4 +1,4 @@
--- Links dish photos to the menu in Supabase (68 dishes).
+-- Links dish photos to the menu in Supabase (101 dishes).
 -- Run once: Supabase Dashboard → SQL Editor → New query → paste → Run.
 -- Only dishes that have NO photo yet are changed, so photos you uploaded
 -- in the admin panel are never replaced. Safe to run more than once.
@@ -6,6 +6,39 @@
 update public.menu_items as m
 set image = p.image
 from (values
+  ('Veg. Dawat Special Soup', '/images/menu/veg-dawat-special-soup.jpg'),
+  ('Veg. Manchow Soup', '/images/menu/veg-manchow-soup.jpg'),
+  ('Veg. Hot & Sour Soup', '/images/menu/veg-hot-and-sour-soup.jpg'),
+  ('Veg. Sweet Corn Soup', '/images/menu/veg-sweet-corn-soup.jpg'),
+  ('Veg. Lemon Coriander Soup', '/images/menu/veg-lemon-coriander-soup.jpg'),
+  ('Veg. Clear Soup', '/images/menu/veg-clear-soup.jpg'),
+  ('Tomato Soup', '/images/menu/tomato-soup.jpg'),
+  ('Dawat Special Soup', '/images/menu/dawat-special-soup.jpg'),
+  ('Chicken Manchow Soup', '/images/menu/chicken-manchow-soup.jpg'),
+  ('Chicken Hot & Sour Soup', '/images/menu/chicken-hot-and-sour-soup.jpg'),
+  ('Chicken Lemon Coriander Soup', '/images/menu/chicken-lemon-coriander-soup.jpg'),
+  ('Chicken Sweet Corn Soup', '/images/menu/chicken-sweet-corn-soup.jpg'),
+  ('Chicken Mongolian Hot Pot Soup', '/images/menu/chicken-mongolian-hot-pot-soup.jpg'),
+  ('Prawns / Fish Soup', '/images/menu/prawns-fish-soup.jpg'),
+  ('Dawat Special Mutton Shorba', '/images/menu/dawat-special-mutton-shorba.jpg'),
+  ('Paneer Tikka Dry', '/images/menu/paneer-tikka-dry.jpg'),
+  ('Paneer Malai Tikka', '/images/menu/paneer-malai-tikka.jpg'),
+  ('Paneer Green Chilly Tikka', '/images/menu/paneer-green-chilly-tikka.jpg'),
+  ('Paneer Banjara Tikka', '/images/menu/paneer-banjara-tikka.jpg'),
+  ('Paneer Golden Tikka', '/images/menu/paneer-golden-tikka.jpg'),
+  ('Paneer Lasuni Tikka', '/images/menu/paneer-lasuni-tikka.jpg'),
+  ('Paneer Chilly (Dry / Gravy)', '/images/menu/paneer-chilly.jpg'),
+  ('Paneer 65 (Dry / Gravy)', '/images/menu/paneer-65.jpg'),
+  ('Paneer Bullet', '/images/menu/paneer-bullet.jpg'),
+  ('Paneer Crackle (Green / Red / Golden)', '/images/menu/paneer-crackle.jpg'),
+  ('Veg. Seekh Kabab', '/images/menu/veg-seekh-kabab.jpg'),
+  ('Veg. Hara Bhara Kabab', '/images/menu/veg-hara-bhara-kabab.jpg'),
+  ('Veg. Crispy', '/images/menu/veg-crispy.jpg'),
+  ('Veg. Manchurian (Dry / Gravy)', '/images/menu/veg-manchurian.jpg'),
+  ('Veg. 65 (Dry / Gravy)', '/images/menu/veg-65.jpg'),
+  ('Potato Crispy', '/images/menu/potato-crispy.jpg'),
+  ('Aloo Ke Gutke', '/images/menu/aloo-ke-gutke.jpg'),
+  ('Makhan Malai Seekh Kabab', '/images/menu/makhan-malai-seekh-kabab.jpg'),
   ('Dawat Special Veg.', '/images/menu/dawat-special-veg.jpg'),
   ('Veg. Makhanwala', '/images/menu/veg-makhanwala.jpg'),
   ('Veg. Toofani', '/images/menu/veg-toofani.jpg'),
