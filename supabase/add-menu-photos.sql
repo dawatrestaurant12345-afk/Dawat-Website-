@@ -1,4 +1,4 @@
--- Links dish photos to the menu in Supabase (213 dishes).
+-- Links dish photos to the menu in Supabase (223 dishes).
 -- Run once: Supabase Dashboard → SQL Editor → New query → paste → Run.
 -- Only dishes that have NO photo yet are changed, so photos you uploaded
 -- in the admin panel are never replaced. Safe to run more than once.
@@ -217,8 +217,18 @@ from (values
   ('Mutton Biryani', '/images/menu/mutton-biryani.webp'),
   ('Egg Biryani', '/images/menu/egg-biryani.webp'),
   ('Plain Chapati', '/images/menu/plain-chapati.webp'),
+  ('Butter Chapati', '/images/menu/butter-chapati.webp'),
   ('Plain Tandoori Roti', '/images/menu/plain-tandoori-roti.webp'),
-  ('Butter Parotha', '/images/menu/butter-parotha.webp')
+  ('Butter Tandoori Roti', '/images/menu/butter-tandoori-roti.webp'),
+  ('Plain Parotha', '/images/menu/plain-parotha.webp'),
+  ('Butter Parotha', '/images/menu/butter-parotha.webp'),
+  ('Plain Naan', '/images/menu/plain-naan.webp'),
+  ('Butter Naan', '/images/menu/butter-naan.webp'),
+  ('Butter Garlic Naan', '/images/menu/butter-garlic-naan.webp'),
+  ('Garlic Cheese Naan', '/images/menu/garlic-cheese-naan.webp'),
+  ('Cheese Naan', '/images/menu/cheese-naan.webp'),
+  ('Plain Kulcha', '/images/menu/plain-kulcha.webp'),
+  ('Butter Kulcha', '/images/menu/butter-kulcha.webp')
 ) as p(name, image)
 where m.name = p.name
   and m.image is null;
