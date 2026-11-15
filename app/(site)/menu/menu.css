@@ -101,49 +101,88 @@
 
 
 /**
- * ITEM ROWS: name ........ price
+ * DISH CARDS: big photo, name, price, order button
  */
 
-.menu-list {
+.menu-cards {
   display: grid;
-  column-gap: 60px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
 }
 
-.menu-row {
+.menu-item-card {
   display: flex;
-  align-items: center;
-  gap: 10px;
-  padding-block: 14px;
-  border-block-end: 1px solid var(--white-alpha-10);
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--white-alpha-10);
+  border-radius: 18px;
+  background-color: var(--eerie-black-2);
+  transition: border-color var(--transition-2), transform var(--transition-2), box-shadow var(--transition-2);
 }
 
-.menu-row-img {
-  flex-shrink: 0;
-  width: 56px;
-  height: 56px;
-  border-radius: 12px;
+.menu-item-card:hover {
+  border-color: var(--gold-crayola);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+}
+
+.menu-item-photo {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background-color: var(--eerie-black-1);
+}
+
+.menu-item-img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  transition: transform var(--transition-3);
 }
 
-.menu-row-name {
+.menu-item-card:hover .menu-item-img { transform: scale(1.07); }
+
+.menu-item-nophoto {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(circle at 50% 40%, hsla(38, 61%, 73%, 0.12), transparent 65%),
+    var(--eerie-black-1);
+  color: hsla(38, 61%, 73%, 0.45);
+  font-size: 4.2rem;
+}
+
+.menu-item-body {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 12px 14px;
+}
+
+.menu-item-name {
   color: var(--white);
   font-family: var(--fontFamily-forum);
-  font-size: var(--fontSize-body-3);
+  font-size: var(--fontSize-body-4);
+  font-weight: var(--weight-regular);
   line-height: var(--lineHeight-6);
-  transition: var(--transition-1);
+  transition: color var(--transition-1);
 }
 
-.menu-row:hover .menu-row-name { color: var(--gold-crayola); }
+.menu-item-card:hover .menu-item-name { color: var(--gold-crayola); }
 
-.menu-row-dots {
-  flex-grow: 1;
-  min-width: 20px;
-  border-block-end: 1px dotted var(--white-alpha-20);
-  transform: translateY(4px);
+.menu-item-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
-.menu-row-price {
-  flex-shrink: 0;
+.menu-item-price {
   color: var(--gold-crayola);
   font-family: var(--fontFamily-forum);
   font-size: var(--fontSize-body-3);
@@ -151,12 +190,32 @@
   white-space: nowrap;
 }
 
-.menu-row-price.is-text {
+.menu-item-price.is-text {
   font-family: var(--fontFamily-dm_sans);
   font-size: var(--fontSize-label-2);
   font-weight: var(--weight-regular);
   letter-spacing: 0.05em;
   text-transform: uppercase;
+}
+
+.menu-item-order {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 11px;
+  border: 1px solid var(--white-alpha-20);
+  border-radius: 999px;
+  color: var(--gold-crayola);
+  font-size: var(--fontSize-label-2);
+  font-weight: var(--weight-bold);
+  letter-spacing: 0.05em;
+  transition: var(--transition-1);
+}
+
+.menu-item-order:is(:hover, :focus-visible) {
+  background-color: var(--gold-crayola);
+  border-color: var(--gold-crayola);
+  color: var(--smoky-black-1);
 }
 
 
@@ -250,7 +309,11 @@
  */
 
 @media (min-width: 768px) {
-  .menu-list { grid-template-columns: 1fr 1fr; }
+  .menu-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+
+  .menu-item-body { padding: 16px 16px 18px; }
+
+  .menu-item-name { font-size: var(--fontSize-body-3); }
 
   .menu-panel-footer {
     grid-template-columns: 1fr auto 1fr;
@@ -264,9 +327,5 @@
 
 /* Large screens: show every category tab at once (wrap instead of scroll). */
 @media (min-width: 1200px) {
-  .menu-nav-scroll {
-    flex-wrap: wrap;
-    justify-content: center;
-    overflow: visible;
-  }
+  .menu-cards { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; }
 }

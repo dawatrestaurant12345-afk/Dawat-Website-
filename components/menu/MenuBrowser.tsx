@@ -56,13 +56,18 @@ export default function MenuBrowser({ categories }: { categories: MenuCategory[]
     return () => window.removeEventListener("hashchange", openFromHash);
   }, [categories]);
 
-  // Keep the selected tab visible inside the scrolling tab bar.
+  // Keep the selected tab visible (centred) inside the scrolling tab bar.
+  // Instant on purpose: a smooth scroll here gets cancelled by the browser when the
+  // page itself is scrolling to the dish list at the same moment.
   useEffect(() => {
-    const bar = tabsRef.current;
-    const tab = bar?.querySelector<HTMLElement>(`[data-id="${activeId}"]`);
-    if (!bar || !tab) return;
-    const left = tab.getBoundingClientRect().left - bar.getBoundingClientRect().left + bar.scrollLeft;
-    bar.scrollTo({ left: left - (bar.clientWidth - tab.offsetWidth) / 2, behavior: "smooth" });
+    const frame = requestAnimationFrame(() => {
+      const bar = tabsRef.current;
+      const tab = bar?.querySelector<HTMLElement>(`[data-id="${activeId}"]`);
+      if (!bar || !tab) return;
+      const left = tab.getBoundingClientRect().left - bar.getBoundingClientRect().left + bar.scrollLeft;
+      bar.scrollLeft = left - (bar.clientWidth - tab.offsetWidth) / 2;
+    });
+    return () => cancelAnimationFrame(frame);
   }, [activeId]);
 
   const select = (id: string) => {
@@ -113,17 +118,39 @@ export default function MenuBrowser({ categories }: { categories: MenuCategory[]
               </span>
             </div>
 
-            <ul className="menu-list">
+            <ul className="menu-cards">
               {active.items.map((item) => (
-                <li key={item.name} className={`menu-row${item.image ? " has-image" : ""}`}>
-                  {item.image && (
-                    <Image src={item.image} width={64} height={64} alt={item.name} className="menu-row-img" />
-                  )}
-                  <span className="menu-row-name">{item.name}</span>
-                  <span className="menu-row-dots" aria-hidden="true" />
-                  <span className={`menu-row-price${item.price === undefined ? " is-text" : ""}`}>
-                    {formatMenuPrice(item.price)}
-                  </span>
+                <li key={item.name} className="menu-item-card">
+                  <div className="menu-item-photo">
+                    {item.image ? (
+                      <Image
+                        src={item.image}
+                        width={480}
+                        height={360}
+                        alt={item.name}
+                        sizes="(min-width: 1200px) 25vw, (min-width: 768px) 33vw, (min-width: 480px) 50vw, 100vw"
+                        className="menu-item-img"
+                      />
+                    ) : (
+                      // No photo yet: show the category icon instead of an empty box.
+                      <div className="menu-item-nophoto" aria-hidden="true">
+                        <ActiveIcon />
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="menu-item-body">
+                    <h3 className="menu-item-name">{item.name}</h3>
+                    <div className="menu-item-footer">
+                      <span className={`menu-item-price${item.price === undefined ? " is-text" : ""}`}>
+                        {formatMenuPrice(item.price)}
+                      </span>
+                      <a href={PRIMARY_TEL} className="menu-item-order" aria-label={`Order ${item.name} on call`}>
+                        <IoCallOutline aria-hidden="true" />
+                        Order
+                      </a>
+                    </div>
+                  </div>
                 </li>
               ))}
             </ul>
