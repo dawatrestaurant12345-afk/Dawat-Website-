@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/page-meta";
 import { ButtonLink, SectionHeading } from "@/components/Button";
 import Facilities from "@/components/Facilities";
 import Gallery from "@/components/gallery/Gallery";
@@ -6,11 +7,7 @@ import { getSite } from "@/lib/content";
 import { primaryTel } from "@/lib/site";
 import "./gallery.css";
 
-export const metadata: Metadata = {
-  title: "Gallery",
-  description:
-    "Photos of Dawat Restaurant, Kheda — our Mughlai & BBQ dishes, open-air garden and rooftop seating on NH-8 Kajipura.",
-};
+export const metadata: Metadata = pageMetadata("/gallery", "Gallery – Food & Ambience", "Photos of Dawat Restaurant, Kheda: Mughlai and BBQ dishes, sizzlers, the AC hall, open-air garden and rooftop seating on NH-8 Kajipura.");
 
 export default async function GalleryPage() {
   const site = await getSite();

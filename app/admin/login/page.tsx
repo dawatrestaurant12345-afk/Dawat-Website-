@@ -33,23 +33,6 @@ export default function AdminLoginPage() {
     router.replace("/admin");
   };
 
-  const resetPassword = async () => {
-    if (!email.trim()) {
-      setMessage({ kind: "error", text: "Type your email above first, then click “Forgot password?”." });
-      return;
-    }
-    setBusy(true);
-    const { error } = await getBrowserClient().auth.resetPasswordForEmail(email.trim(), {
-      redirectTo: `${window.location.origin}/admin/reset`,
-    });
-    setBusy(false);
-    setMessage(
-      error
-        ? { kind: "error", text: error.message }
-        : { kind: "info", text: "If this email is an admin account, a password reset link has been sent to it." },
-    );
-  };
-
   return (
     <main className="admin-login">
       <form className="admin-login-card" onSubmit={signIn}>
@@ -94,10 +77,6 @@ export default function AdminLoginPage() {
 
             <button type="submit" className="admin-btn is-primary is-block" disabled={busy}>
               {busy ? "Please wait…" : "Sign in"}
-            </button>
-
-            <button type="button" className="admin-link-btn" onClick={resetPassword} disabled={busy}>
-              Forgot password?
             </button>
           </>
         )}

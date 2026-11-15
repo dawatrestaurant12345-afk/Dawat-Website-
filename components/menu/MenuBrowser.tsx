@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import type { IconType } from "react-icons";
 import {
-  IoCallOutline,
   IoChevronBack,
   IoChevronForward,
   IoFishOutline,
@@ -16,8 +15,6 @@ import {
 } from "react-icons/io5";
 import { TbBowlChopsticks, TbBread, TbCrown, TbSoup } from "react-icons/tb";
 import { formatMenuPrice, type MenuCategory, type MenuIcon } from "@/lib/menu";
-import { useSite } from "@/components/SiteProvider";
-import { primaryTel } from "@/lib/site";
 
 const icons: Record<MenuIcon, IconType> = {
   leaf: IoLeafOutline,
@@ -34,8 +31,6 @@ const icons: Record<MenuIcon, IconType> = {
 
 /** Category tabs: only the selected category's dishes are shown. */
 export default function MenuBrowser({ categories }: { categories: MenuCategory[] }) {
-  const site = useSite();
-  const PRIMARY_TEL = primaryTel(site);
   const [activeId, setActiveId] = useState(categories[0].id);
   const tabsRef = useRef<HTMLDivElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
@@ -141,15 +136,9 @@ export default function MenuBrowser({ categories }: { categories: MenuCategory[]
 
                   <div className="menu-item-body">
                     <h3 className="menu-item-name">{item.name}</h3>
-                    <div className="menu-item-footer">
-                      <span className={`menu-item-price${item.price === undefined ? " is-text" : ""}`}>
-                        {formatMenuPrice(item.price)}
-                      </span>
-                      <a href={PRIMARY_TEL} className="menu-item-order" aria-label={`Order ${item.name} on call`}>
-                        <IoCallOutline aria-hidden="true" />
-                        Order
-                      </a>
-                    </div>
+                    <span className={`menu-item-price${item.price === undefined ? " is-text" : ""}`}>
+                      {formatMenuPrice(item.price)}
+                    </span>
                   </div>
                 </li>
               ))}
@@ -164,11 +153,6 @@ export default function MenuBrowser({ categories }: { categories: MenuCategory[]
               ) : (
                 <span />
               )}
-
-              <a href={PRIMARY_TEL} className="menu-order-link">
-                <IoCallOutline aria-hidden="true" />
-                Order: {site.phones.primary.label}
-              </a>
 
               {next ? (
                 <button type="button" className="menu-step is-next" onClick={() => select(next.id)}>

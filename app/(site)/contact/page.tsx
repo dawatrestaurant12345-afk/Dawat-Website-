@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/page-meta";
 import type { ReactNode } from "react";
 import {
   IoCallOutline,
@@ -16,13 +17,7 @@ import { getSite } from "@/lib/content";
 import { primaryTel, telHref, type Site } from "@/lib/site";
 import "./contact.css";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const site = await getSite();
-  return {
-    title: "Contact Us",
-    description: `Call ${site.phones.primary.label}, WhatsApp us or visit Dawat Restaurant on NH-8 Kajipura, Kheda. Open daily ${site.hours}. Book your table online.`,
-  };
-}
+export const metadata: Metadata = pageMetadata("/contact", "Contact & Table Booking", "Call, WhatsApp or visit Dawat Restaurant on NH-8 Kajipura, Kheda, Gujarat. Open daily 1 PM – 1 AM. Book your table online for family dinners and parties.");
 
 const getFaqs = (site: Site): { q: string; a: ReactNode }[] => [
   {

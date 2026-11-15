@@ -1041,6 +1041,9 @@ body.nav-active { overflow: hidden; }
 
 .menu .grid-list { margin-block-end: 50px; }
 
+/* Let grid items shrink below their content width so long dish names can wrap. */
+.menu .grid-list > li { min-width: 0; }
+
 .menu-card {
   display: flex;
   align-items: flex-start;
@@ -1054,9 +1057,10 @@ body.nav-active { overflow: hidden; }
 
 .menu-card .title-wrapper {
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
-  gap: 12px;
+  gap: 6px 12px;
   width: 100%;
 }
 
@@ -1077,9 +1081,19 @@ body.nav-active { overflow: hidden; }
   overflow: hidden;
 }
 
-.menu-card .card-title {
-  transition: var(--transition-1);
-  white-space: nowrap;
+.menu-card .card-title { transition: var(--transition-1); }
+
+/* Phones: name on its own line(s), price on the next line, always visible. */
+@media (max-width: 574px) {
+  .menu-card { gap: 14px; }
+
+  .menu-card .card-banner { width: 80px; height: 80px; }
+
+  .menu-card .title-wrapper .title-3 { flex-basis: 100%; }
+
+  .menu-card .span { justify-content: flex-start; }
+
+  .menu-card .span::before { display: none; }
 }
 
 .menu-card .card-title:is(:hover, :focus-visible) { color: var(--gold-crayola); }
@@ -1529,7 +1543,7 @@ textarea.input-field {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 15px;
+    gap: 6px 15px;
   }
 
   .menu-card .badge { margin-block-start: 0; }
@@ -2245,3 +2259,24 @@ textarea.input-field {
 .reservation-standalone { padding-block: var(--section-space); }
 
 .reservation-standalone .reservation-form { margin-block-start: 0; }
+
+/*-----------------------------------*\
+  #404 PAGE
+\*-----------------------------------*/
+
+body:has(.not-found) { overflow-y: auto; }
+
+.not-found {
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 14px;
+  padding: 40px 16px;
+  text-align: center;
+  background-color: var(--smoky-black-1);
+}
+
+.not-found .logo { margin-block-end: 24px; }
+
+.not-found-text { color: var(--quick-silver); max-width: 420px; }

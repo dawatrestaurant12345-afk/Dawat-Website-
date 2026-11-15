@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/page-meta";
 import Image from "next/image";
 import { IoCallOutline, IoLocationOutline, IoTimeOutline } from "react-icons/io5";
 import { ButtonLink, SectionHeading } from "@/components/Button";
@@ -8,11 +9,7 @@ import { getAbout, getSite } from "@/lib/content";
 import { primaryTel, telHref } from "@/lib/site";
 import "./about.css";
 
-export const metadata: Metadata = {
-  title: "About Us",
-  description:
-    "The story of Dawat Restaurant on NH-8 Kajipura, Kheda — serving authentic Mughlai, charcoal BBQ, Raan Biryani and seafood since 2019, with rooftop & garden seating and free parking.",
-};
+export const metadata: Metadata = pageMetadata("/about", "About Us", "The story of Dawat Restaurant on NH-8 Kajipura, Kheda: authentic Mughlai, charcoal BBQ, Raan Biryani and seafood since 2019, with garden & rooftop seating, kids play area and free parking.");
 
 const specialties = [
   {

@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { DM_Sans, Forum } from "next/font/google";
+import { SEO, SITE_URL } from "@/lib/seo";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -17,17 +18,45 @@ const forum = Forum({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "Dawat Restaurant - Amazing & Delicious Food",
+    default: SEO.title,
     template: "%s | Dawat Restaurant, Kheda",
   },
-  description:
-    "Dawat Restaurant - Best Non-Veg, Mughlai, BBQ & Seafood in Kheda, Gujarat. Open daily 1:00 PM to 1:00 AM on NH-8 Kajipura.",
-  icons: { icon: "/favicon.svg" },
+  description: SEO.description,
+  keywords: SEO.keywords,
+  applicationName: SEO.name,
+  category: "restaurant",
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    locale: SEO.locale,
+    siteName: SEO.name,
+    title: SEO.title,
+    description: SEO.description,
+    url: "/",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SEO.title,
+    description: SEO.description,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
+  },
+  icons: {
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }, { url: "/favicon.png", type: "image/png" }],
+    apple: "/favicon.png",
+  },
+  formatDetection: { telephone: false },
 };
 
 export const viewport: Viewport = {
   themeColor: "#0d0c0a",
+  width: "device-width",
+  initialScale: 1,
 };
 
 /** Shared by the public website (app/(site)) and the admin panel (app/admin). */

@@ -2,6 +2,7 @@ import FloatingActions from "@/components/FloatingActions";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Preloader from "@/components/Preloader";
+import RestaurantSchema from "@/components/RestaurantSchema";
 import { SiteProvider } from "@/components/SiteProvider";
 import Topbar from "@/components/Topbar";
 import { getAbout, getSite } from "@/lib/content";
@@ -17,6 +18,7 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
 
   return (
     <SiteProvider value={{ site, about }}>
+      <RestaurantSchema site={site} />
       <Preloader />
       <Topbar />
       <Header />
