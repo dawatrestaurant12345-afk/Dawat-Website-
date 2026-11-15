@@ -1,4 +1,4 @@
--- Links dish photos to the menu in Supabase (151 dishes).
+-- Links dish photos to the menu in Supabase (173 dishes).
 -- Run once: Supabase Dashboard → SQL Editor → New query → paste → Run.
 -- Only dishes that have NO photo yet are changed, so photos you uploaded
 -- in the admin panel are never replaced. Safe to run more than once.
@@ -40,13 +40,13 @@ from (values
   ('Aloo Ke Gutke', '/images/menu/aloo-ke-gutke.jpg'),
   ('Makhan Malai Seekh Kabab', '/images/menu/makhan-malai-seekh-kabab.jpg'),
   ('Chicken Tandoori (Full)', '/images/menu/chicken-tandoori.jpg'),
-  ('Chicken Tandoori (Half)', '/images/menu/chicken-tandoori.jpg'),
+  ('Chicken Tandoori (Half)', '/images/menu/chicken-tandoori-half.webp'),
   ('Sizzling Tandoori (Full)', '/images/menu/sizzling-tandoori.jpg'),
-  ('Sizzling Tandoori (Half)', '/images/menu/sizzling-tandoori.jpg'),
+  ('Sizzling Tandoori (Half)', '/images/menu/sizzling-tandoori-half.webp'),
   ('Chicken Pathani (Full)', '/images/menu/chicken-pathani.jpg'),
-  ('Chicken Pathani (Half)', '/images/menu/chicken-pathani.jpg'),
+  ('Chicken Pathani (Half)', '/images/menu/chicken-pathani-half.webp'),
   ('Sizzling Pathani (Full)', '/images/menu/sizzling-pathani.jpg'),
-  ('Sizzling Pathani (Half)', '/images/menu/sizzling-pathani.jpg'),
+  ('Sizzling Pathani (Half)', '/images/menu/sizzling-pathani-half.webp'),
   ('Chicken Tandoori Leg or Breast', '/images/menu/chicken-tandoori-leg.jpg'),
   ('Golden Leg', '/images/menu/golden-leg.jpg'),
   ('Dawat Special Leg', '/images/menu/dawat-special-leg.jpg'),
@@ -89,6 +89,28 @@ from (values
   ('Sizzling Dhamal Tikka', '/images/menu/sizzling-dhamal-tikka.jpg'),
   ('Chicken Rajwadi Tikka', '/images/menu/chicken-rajwadi-tikka.jpg'),
   ('London Eye Tikka', '/images/menu/london-eye-tikka.jpg'),
+  ('Chicken Moghlai', '/images/menu/chicken-moghlai.webp'),
+  ('Chicken Masala (With Bone)', '/images/menu/chicken-masala.webp'),
+  ('Chicken Handi (With Bone)', '/images/menu/chicken-handi.webp'),
+  ('Chicken Kadai', '/images/menu/chicken-kadai.webp'),
+  ('Chicken Tikka Masala', '/images/menu/chicken-tikka-masala.webp'),
+  ('Butter Chicken (Boneless)', '/images/menu/butter-chicken.webp'),
+  ('Chicken Afghani', '/images/menu/chicken-afghani.webp'),
+  ('Chicken Lemon', '/images/menu/chicken-lemon.webp'),
+  ('Chicken Lakhnavi', '/images/menu/chicken-lakhnavi.webp'),
+  ('Chicken Lahori', '/images/menu/chicken-lahori.webp'),
+  ('Chicken Matka', '/images/menu/chicken-matka.webp'),
+  ('Chicken Kolhapuri', '/images/menu/chicken-kolhapuri.webp'),
+  ('Chicken Hariyali', '/images/menu/chicken-hariyali.webp'),
+  ('Chicken Angara', '/images/menu/chicken-angara.webp'),
+  ('Chicken Rogan Josh', '/images/menu/chicken-rogan-josh.webp'),
+  ('Chicken Laziz Handi', '/images/menu/chicken-laziz-handi.webp'),
+  ('Chicken Akbari (Platter)', '/images/menu/chicken-akbari.webp'),
+  ('Chicken Saam Savera (Platter)', '/images/menu/chicken-saam-savera.webp'),
+  ('Chicken Sitara', '/images/menu/chicken-sitara.webp'),
+  ('Dawat Special Chicken (Platter)', '/images/menu/dawat-special-chicken-platter.webp'),
+  ('Murg Mumtaz (Platter)', '/images/menu/murg-mumtaz.webp'),
+  ('Kranti Chicken (Platter)', '/images/menu/kranti-chicken.webp'),
   ('Dawat Special Veg.', '/images/menu/dawat-special-veg.jpg'),
   ('Veg. Makhanwala', '/images/menu/veg-makhanwala.jpg'),
   ('Veg. Toofani', '/images/menu/veg-toofani.jpg'),
@@ -160,3 +182,16 @@ from (values
 ) as p(name, image)
 where m.name = p.name
   and m.image is null;
+
+-- Half dishes: switch from the shared Full photo to their own Half photo.
+-- Only changes a Half dish that still shows the Full photo.
+update public.menu_items as m
+set image = p.new_image
+from (values
+  ('Chicken Tandoori (Half)',  '/images/menu/chicken-tandoori.jpg',  '/images/menu/chicken-tandoori-half.webp'),
+  ('Sizzling Tandoori (Half)', '/images/menu/sizzling-tandoori.jpg', '/images/menu/sizzling-tandoori-half.webp'),
+  ('Chicken Pathani (Half)',   '/images/menu/chicken-pathani.jpg',   '/images/menu/chicken-pathani-half.webp'),
+  ('Sizzling Pathani (Half)',  '/images/menu/sizzling-pathani.jpg',  '/images/menu/sizzling-pathani-half.webp')
+) as p(name, old_image, new_image)
+where m.name = p.name
+  and m.image = p.old_image;
