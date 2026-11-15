@@ -1,4 +1,4 @@
--- Links dish photos to the menu in Supabase (193 dishes).
+-- Links dish photos to the menu in Supabase (213 dishes).
 -- Run once: Supabase Dashboard → SQL Editor → New query → paste → Run.
 -- Only dishes that have NO photo yet are changed, so photos you uploaded
 -- in the admin panel are never replaced. Safe to run more than once.
@@ -158,9 +158,11 @@ from (values
   ('Fish / Prawns Tikka Masala', '/images/menu/fish-tikka-masala.jpg'),
   ('Fish / Prawns Curry', '/images/menu/prawns-curry.jpg'),
   ('Fish / Prawns Tawa Fry', '/images/menu/fish-prawns-tawa-fry.webp'),
+  ('Sultani Fish', '/images/menu/sultani-fish.webp'),
   ('Chicken Barbeque Sizzler', '/images/menu/chicken-bbq-sizzler.jpg'),
   ('Chicken Chinese Sizzler', '/images/menu/chicken-chinese-sizzler.jpg'),
   ('Chicken Malai Tikka Sizzler', '/images/menu/chicken-malai-tikka-sizzler.jpg'),
+  ('Fish / Prawns Sizzler', '/images/menu/fish-prawns-sizzler.webp'),
   ('Sikandari Raan (Boneless)', '/images/menu/sikandari-raan.jpg'),
   ('Barbeque Tandoori Raan', '/images/menu/barbeque-tandoori-raan.jpg'),
   ('Barbeque Golden Raan', '/images/menu/barbeque-golden-raan.jpg'),
@@ -169,7 +171,10 @@ from (values
   ('Tawa Cream Raan', '/images/menu/tawa-cream-raan.jpg'),
   ('Tawa Fry Raan', '/images/menu/tawa-fry-raan.jpg'),
   ('Raan Biryani', '/images/menu/raan-biryani.jpg'),
+  ('Labnanese Raan', '/images/menu/labnanese-raan.webp'),
   ('Barbeque Platter', '/images/menu/barbeque-platter.jpg'),
+  ('Dawat Platter', '/images/menu/dawat-platter.webp'),
+  ('Dawat Chicken Sizzling Platter', '/images/menu/dawat-chicken-sizzling-platter.webp'),
   ('Dawat Chicken Tikka Platter', '/images/menu/dawat-chicken-tikka-platter.jpg'),
   ('Sea Food Platter', '/images/menu/seafood-platter.jpg'),
   ('Sea Food Biryani', '/images/menu/seafood-biryani.jpg'),
@@ -177,28 +182,43 @@ from (values
   ('Murg Musallam', '/images/menu/murg-musallam.jpg'),
   ('Leg Dhamaka', '/images/menu/leg-dhamaka.jpg'),
   ('Turkish Spl Platter', '/images/menu/turkish-spl-platter.jpg'),
+  ('Mix Spl Platter', '/images/menu/mix-spl-platter.webp'),
   ('Tandoori Pomfret', '/images/menu/tandoori-pomfret.jpg'),
   ('Hariyali Pomfret', '/images/menu/hariyali-pomfret.jpg'),
   ('Lasuni Pomfret', '/images/menu/lasuni-pomfret.jpg'),
   ('Tawa Fry Pomfret', '/images/menu/tawa-fry-pomfret.jpg'),
   ('Fish Tandoori Tikka', '/images/menu/fish-tandoori-tikka.jpg'),
   ('Fish Hariyali Tikka', '/images/menu/fish-hariyali-tikka.jpg'),
+  ('Fish Lasuni Tikka', '/images/menu/fish-lasuni-tikka.webp'),
   ('Fish Koliwada', '/images/menu/fish-koliwada.jpg'),
   ('Fish Crackle', '/images/menu/fish-crackle.jpg'),
+  ('Fish Tandoori Crackle', '/images/menu/fish-tandoori-crackle.webp'),
   ('Prawns Tandoori Tikka', '/images/menu/prawns-tandoori-tikka.jpg'),
   ('Prawns Hariyali Tikka', '/images/menu/prawns-hariyali-tikka.jpg'),
   ('Prawns Lasuni Tikka', '/images/menu/prawns-lasuni-tikka.jpg'),
   ('Prawns Koliwada', '/images/menu/prawns-koliwada.jpg'),
+  ('Prawns Tawa Dry Fry', '/images/menu/prawns-tawa-dry-fry.webp'),
   ('Veg. Hakka Noodles', '/images/menu/veg-hakka-noodles.jpg'),
   ('Veg. Schezwan Noodles', '/images/menu/veg-schezwan-noodles.jpg'),
   ('Veg. Fried Rice', '/images/menu/veg-fried-rice.jpg'),
   ('Veg. Schezwan Rice', '/images/menu/veg-schezwan-rice.jpg'),
   ('Veg. Manchurian Fried Rice', '/images/menu/veg-manchurian-fried-rice.jpg'),
+  ('Veg. Singapuri Rice (With Gravy)', '/images/menu/veg-singapuri-rice.webp'),
+  ('Veg. Tripple Schezwan Rice (With Gravy)', '/images/menu/veg-triple-schezwan-rice.webp'),
   ('Veg. Biryani', '/images/menu/veg-biryani.jpg'),
   ('Veg. Pulav', '/images/menu/veg-pulav.jpg'),
+  ('Paneer Pulav', '/images/menu/paneer-pulav.webp'),
   ('Steam Rice', '/images/menu/steam-rice.jpg'),
   ('Jeera Rice', '/images/menu/jeera-rice.jpg'),
-  ('Dal Khichdi', '/images/menu/dal-khichdi.jpg')
+  ('Dal Khichdi', '/images/menu/dal-khichdi.jpg'),
+  ('Chicken Biryani', '/images/menu/chicken-biryani.webp'),
+  ('Chicken Tikka Biryani', '/images/menu/chicken-tikka-biryani.webp'),
+  ('Chicken Hyderabadi Biryani', '/images/menu/chicken-hyderabadi-biryani.webp'),
+  ('Mutton Biryani', '/images/menu/mutton-biryani.webp'),
+  ('Egg Biryani', '/images/menu/egg-biryani.webp'),
+  ('Plain Chapati', '/images/menu/plain-chapati.webp'),
+  ('Plain Tandoori Roti', '/images/menu/plain-tandoori-roti.webp'),
+  ('Butter Parotha', '/images/menu/butter-parotha.webp')
 ) as p(name, image)
 where m.name = p.name
   and m.image is null;
