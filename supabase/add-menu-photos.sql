@@ -1,4 +1,4 @@
--- Links dish photos to the menu in Supabase (223 dishes).
+-- Links dish photos to the menu in Supabase (245 dishes).
 -- Run once: Supabase Dashboard → SQL Editor → New query → paste → Run.
 -- Only dishes that have NO photo yet are changed, so photos you uploaded
 -- in the admin panel are never replaced. Safe to run more than once.
@@ -89,6 +89,26 @@ from (values
   ('Sizzling Dhamal Tikka', '/images/menu/sizzling-dhamal-tikka.jpg'),
   ('Chicken Rajwadi Tikka', '/images/menu/chicken-rajwadi-tikka.jpg'),
   ('London Eye Tikka', '/images/menu/london-eye-tikka.jpg'),
+  ('Chicken Crispy', '/images/menu/chicken-crispy.jpg'),
+  ('Chicken Shanghai', '/images/menu/chicken-shanghai.jpg'),
+  ('Chicken China Town', '/images/menu/chicken-china-town.jpg'),
+  ('Chicken Bullet', '/images/menu/chicken-bullet.jpg'),
+  ('Chicken Darziling', '/images/menu/chicken-darjeeling.jpg'),
+  ('Chicken Hong Kong', '/images/menu/chicken-hong-kong.jpg'),
+  ('Chicken Lollipop (Dry / Gravy)', '/images/menu/chicken-lollipop.jpg'),
+  ('Chicken Chilly (Dry / Gravy)', '/images/menu/chicken-chilly.jpg'),
+  ('Chicken Manchurian (Dry / Gravy)', '/images/menu/chicken-manchurian.jpg'),
+  ('Chicken Schezwan (Dry / Gravy)', '/images/menu/chicken-schezwan.jpg'),
+  ('Chicken Redcook (Dry / Gravy)', '/images/menu/chicken-redcook.jpg'),
+  ('Chicken Rose Garden (Dry / Gravy)', '/images/menu/chicken-rose-garden.jpg'),
+  ('Chicken 65 (Dry / Gravy)', '/images/menu/chicken-65.jpg'),
+  ('Fish / Prawns Chilly (Dry / Gravy)', '/images/menu/fish-prawns-chilly.jpg'),
+  ('Fish / Prawns Chilly Flex', '/images/menu/fish-prawns-chilly-flex.jpg'),
+  ('Fish / Prawns Bullet', '/images/menu/fish-prawns-bullet.jpg'),
+  ('Fish / Prawns Butter Garlic', '/images/menu/fish-prawns-butter-garlic.jpg'),
+  ('Fish / Prawns Ginger', '/images/menu/fish-prawns-ginger.jpg'),
+  ('Fish / Prawns Mongolian', '/images/menu/fish-prawns-mongolian.jpg'),
+  ('Crunchy Fish', '/images/menu/crunchy-fish.jpg'),
   ('Chicken Moghlai', '/images/menu/chicken-moghlai.webp'),
   ('Chicken Masala (With Bone)', '/images/menu/chicken-masala.webp'),
   ('Chicken Handi (With Bone)', '/images/menu/chicken-handi.webp'),
@@ -228,7 +248,9 @@ from (values
   ('Garlic Cheese Naan', '/images/menu/garlic-cheese-naan.webp'),
   ('Cheese Naan', '/images/menu/cheese-naan.webp'),
   ('Plain Kulcha', '/images/menu/plain-kulcha.webp'),
-  ('Butter Kulcha', '/images/menu/butter-kulcha.webp')
+  ('Butter Kulcha', '/images/menu/butter-kulcha.webp'),
+  ('Roti Ki Tokri (Assorted Rotis)', '/images/menu/roti-ki-tokri.jpg'),
+  ('Akhrot Halwa', '/images/menu/akhrot-halwa.jpg')
 ) as p(name, image)
 where m.name = p.name
   and m.image is null;
