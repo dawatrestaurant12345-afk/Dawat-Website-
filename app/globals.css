@@ -1083,7 +1083,7 @@ body.nav-active { overflow: hidden; }
 
 .menu-card .card-title { transition: var(--transition-1); }
 
-/* Phones: name on its own line(s), price on the next line, always visible. */
+/* Phones: dish name and category only; the price is hidden on small screens. */
 @media (max-width: 574px) {
   .menu-card { gap: 14px; }
 
@@ -1091,9 +1091,7 @@ body.nav-active { overflow: hidden; }
 
   .menu-card .title-wrapper .title-3 { flex-basis: 100%; }
 
-  .menu-card .span { justify-content: flex-start; }
-
-  .menu-card .span::before { display: none; }
+  .menu-card .title-wrapper .span { display: none; }
 }
 
 .menu-card .card-title:is(:hover, :focus-visible) { color: var(--gold-crayola); }
@@ -2148,6 +2146,12 @@ textarea.input-field {
   display: inline;
   color: var(--gold-crayola);
   font-weight: var(--weight-bold);
+  transition: color var(--transition-1);
+}
+
+.copyright .credit:is(:hover, :focus-visible) {
+  color: var(--white);
+  text-decoration: underline;
 }
 
 /* Crop non-square photos to a square without stretching */

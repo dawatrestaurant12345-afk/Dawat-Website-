@@ -89,7 +89,9 @@ export default async function Footer() {
         <div className="footer-bottom">
           <p className="copyright">
             &copy; {new Date().getFullYear()} {site.name}, Kheda, Gujarat. All Rights Reserved | Powered by{" "}
-            <span className="credit">Safvan &amp; Saad</span>
+            <a href="https://www.noortechnolab.online/" target="_blank" rel="noopener" className="credit">
+              Noor Technolab
+            </a>
           </p>
         </div>
       </div>

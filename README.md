@@ -64,4 +64,4 @@ supabase/schema.sql   Database tables, security rules and photo storage
 public/images/        All images
 ```
 
-Design based on the Grilli template (MIT, © 2022 codewithsadee). Powered by Safvan & Saad.
+Design based on the Grilli template (MIT, © 2022 codewithsadee). Powered by [Noor Technolab](https://www.noortechnolab.online/).
