@@ -6,12 +6,16 @@ import { primaryTel, telHref } from "@/lib/site";
 
 const pageLinks = [
   { href: "/", label: "Home" },
-  { href: "/menu", label: "Menus" },
+  { href: "/menu", label: "Menu" },
   { href: "/about", label: "About Us" },
   { href: "/gallery", label: "Gallery" },
-  { href: "/#features", label: "Specialties" },
-  { href: "/#reservation", label: "Book Table" },
+  { href: "/contact#reservation", label: "Book a Table" },
   { href: "/contact", label: "Contact Us" },
+];
+
+const legalLinks = [
+  { href: "/privacy-policy", label: "Privacy Policy" },
+  { href: "/terms-and-conditions", label: "Terms & Conditions" },
 ];
 
 export default async function Footer() {
@@ -19,9 +23,10 @@ export default async function Footer() {
   const { primary, secondary } = site.phones;
 
   const socialLinks = [
-    { href: site.social.facebook, label: "Facebook" },
     { href: site.social.instagram, label: "Instagram" },
-    { href: site.social.maps, label: "Google Map Location" },
+    { href: site.social.facebook, label: "Facebook" },
+    { href: site.whatsapp, label: "WhatsApp" },
+    { href: site.social.maps, label: "Google Maps" },
   ];
 
   return (
@@ -65,33 +70,66 @@ export default async function Footer() {
             </div>
           </div>
 
-          <ul className="footer-list">
-            {pageLinks.map(({ href, label }) => (
-              <li key={href}>
-                <Link href={href} className="label-2 footer-link hover-underline">
-                  {label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <nav className="footer-col" aria-labelledby="footer-explore">
+            <h2 className="footer-heading" id="footer-explore">
+              Explore
+            </h2>
+            <ul className="footer-list">
+              {pageLinks.map(({ href, label }) => (
+                <li key={href}>
+                  <Link href={href} className="label-2 footer-link hover-underline">
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
-          <ul className="footer-list">
-            {socialLinks.map(({ href, label }) => (
-              <li key={label}>
-                <a href={href} target="_blank" rel="noopener noreferrer" className="label-2 footer-link hover-underline">
-                  {label}
-                </a>
-              </li>
-            ))}
-          </ul>
+          <div className="footer-col">
+            <h2 className="footer-heading" id="footer-follow">
+              Follow Us
+            </h2>
+            <ul className="footer-list" aria-labelledby="footer-follow">
+              {socialLinks.map(({ href, label }) => (
+                <li key={label}>
+                  <a href={href} target="_blank" rel="noopener noreferrer" className="label-2 footer-link hover-underline">
+                    {label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+
+            <h2 className="footer-heading footer-heading-spaced" id="footer-legal">
+              Legal
+            </h2>
+            <ul className="footer-list" aria-labelledby="footer-legal">
+              {legalLinks.map(({ href, label }) => (
+                <li key={href}>
+                  <Link href={href} className="label-2 footer-link hover-underline">
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
         <div className="footer-bottom">
           <p className="copyright">
-            &copy; {new Date().getFullYear()} {site.name}, Kheda, Gujarat. All Rights Reserved | Powered by{" "}
-            <a href="https://www.noortechnolab.online/" target="_blank" rel="noopener" className="credit">
-              Noor Technolab
-            </a>
+            &copy; {new Date().getFullYear()} {site.name}, Kheda, Gujarat. All rights reserved.
+          </p>
+          <p className="footer-bottom-links">
+            {legalLinks.map(({ href, label }) => (
+              <Link key={href} href={href}>
+                {label}
+              </Link>
+            ))}
+            <span className="footer-powered">
+              Powered by{" "}
+              <a href="https://www.noortechnolab.online/" target="_blank" rel="noopener" className="credit">
+                Noor Technolab
+              </a>
+            </span>
           </p>
         </div>
       </div>

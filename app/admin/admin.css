@@ -556,3 +556,74 @@ body:has(.admin-root) { overflow-y: auto; }
 
   .admin-cats ul { max-height: calc(100vh - 220px); }
 }
+
+
+/**
+ * LEGAL PAGES EDITOR
+ */
+
+.admin-seg {
+  display: inline-flex;
+  padding: 4px;
+  gap: 4px;
+  border: 1px solid var(--white-alpha-20);
+  border-radius: 999px;
+}
+
+.admin-seg-btn {
+  padding: 8px 16px;
+  border-radius: 999px;
+  color: var(--quick-silver);
+  font-size: 1.4rem;
+  transition: var(--transition-1);
+}
+
+.admin-seg-btn:is(:hover, :focus-visible) { color: var(--white); }
+
+.admin-seg-btn.is-active {
+  background-color: var(--gold-crayola);
+  color: var(--smoky-black-1);
+  font-weight: var(--weight-bold);
+}
+
+.admin-inline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+}
+
+.admin-inline input { flex: 1 1 180px; }
+
+.admin-legal-section {
+  display: grid;
+  gap: 10px;
+  padding: 14px;
+  border: 1px solid var(--white-alpha-10);
+  border-radius: 14px;
+  background-color: var(--eerie-black-2);
+}
+
+.admin-legal-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.admin-legal-head input {
+  flex-grow: 1;
+  font-weight: var(--weight-bold);
+}
+
+.admin-legal-num {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: hsla(38, 61%, 73%, 0.15);
+  color: var(--gold-crayola);
+  font-size: 1.3rem;
+  font-weight: var(--weight-bold);
+}

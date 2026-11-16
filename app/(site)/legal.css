@@ -1,0 +1,93 @@
+/*-----------------------------------*\
+  #LEGAL PAGES (Privacy Policy, Terms & Conditions)
+\*-----------------------------------*/
+
+.legal-container { max-width: 860px; }
+
+.legal-intro {
+  color: var(--white);
+  font-size: var(--fontSize-body-3);
+  line-height: var(--lineHeight-4);
+  padding-block-end: 28px;
+  margin-block-end: 28px;
+  border-block-end: 1px solid var(--white-alpha-10);
+}
+
+.legal-section { margin-block-end: 34px; }
+
+.legal-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  color: var(--gold-crayola);
+  font-family: var(--fontFamily-forum);
+  font-size: var(--fontSize-title-2);
+  font-weight: var(--weight-regular);
+  line-height: var(--lineHeight-2);
+  margin-block-end: 12px;
+}
+
+.legal-number {
+  flex-shrink: 0;
+  color: var(--quick-silver);
+  font-family: var(--fontFamily-dm_sans);
+  font-size: var(--fontSize-label-1);
+  letter-spacing: 0.1em;
+}
+
+.legal-text,
+.legal-list li {
+  color: var(--quick-silver);
+  line-height: var(--lineHeight-4);
+}
+
+.legal-text + .legal-text,
+.legal-text + .legal-list,
+.legal-list + .legal-text { margin-block-start: 12px; }
+
+.legal-list {
+  display: grid;
+  gap: 6px;
+  padding-inline-start: 4px;
+}
+
+.legal-list li {
+  position: relative;
+  padding-inline-start: 18px;
+}
+
+.legal-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.75em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--gold-crayola);
+}
+
+.legal-contact {
+  margin-block-start: 40px;
+  padding: 24px;
+  border: 1px solid var(--gold-crayola);
+  border-radius: var(--radius-24);
+  background-color: var(--eerie-black-2);
+}
+
+.legal-contact a,
+.legal-other a {
+  display: inline;
+  color: var(--gold-crayola);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.legal-contact a:is(:hover, :focus-visible),
+.legal-other a:is(:hover, :focus-visible) { color: var(--white); }
+
+.legal-other {
+  margin-block-start: 28px;
+  color: var(--quick-silver);
+  text-align: center;
+}

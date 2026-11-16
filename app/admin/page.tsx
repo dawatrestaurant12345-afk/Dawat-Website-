@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import AboutEditor from "@/components/admin/AboutEditor";
 import AccountPanel from "@/components/admin/AccountPanel";
+import LegalEditor from "@/components/admin/LegalEditor";
 import MenuEditor from "@/components/admin/MenuEditor";
 import SettingsEditor from "@/components/admin/SettingsEditor";
 import { useAdmin } from "@/lib/admin";
@@ -15,6 +16,7 @@ const TABS = [
   { id: "menu", label: "Menu & Prices" },
   { id: "details", label: "Restaurant Details" },
   { id: "about", label: "About Us" },
+  { id: "legal", label: "Legal Pages" },
   { id: "account", label: "Account" },
 ] as const;
 
@@ -93,6 +95,7 @@ export default function AdminDashboardPage() {
         {tab === "menu" && <MenuEditor />}
         {tab === "details" && <SettingsEditor />}
         {tab === "about" && <AboutEditor />}
+        {tab === "legal" && <LegalEditor />}
         {tab === "account" && <AccountPanel email={admin.session.user.email ?? ""} />}
       </main>
     </div>

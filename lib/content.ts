@@ -1,4 +1,5 @@
 import { cache } from "react";
+import { DEFAULT_PRIVACY, DEFAULT_TERMS, LEGAL_KEYS, type LegalDoc } from "./legal";
 import { MENU_ICONS, menuCategories as DEFAULT_MENU, type MenuCategory, type MenuIcon } from "./menu";
 import {
   buildSite,
@@ -35,6 +36,13 @@ export const getSite = cache(async (): Promise<Site> => {
 export const getAbout = cache(async (): Promise<AboutContent> => {
   const saved = await getContentRow("about");
   return mergeWithDefaults(DEFAULT_ABOUT, saved);
+});
+
+/** Privacy Policy or Terms & Conditions (edited in the admin "Legal Pages" tab). */
+export const getLegalDoc = cache(async (which: keyof typeof LEGAL_KEYS): Promise<LegalDoc> => {
+  const defaults = which === "privacy" ? DEFAULT_PRIVACY : DEFAULT_TERMS;
+  const saved = await getContentRow(LEGAL_KEYS[which]);
+  return mergeWithDefaults(defaults, saved);
 });
 
 type CategoryRow = {
