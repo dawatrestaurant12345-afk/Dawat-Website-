@@ -5,7 +5,7 @@ import MenuBrowser from "@/components/menu/MenuBrowser";
 import { getMenu, getSite } from "@/lib/content";
 import "./menu.css";
 
-export const metadata: Metadata = pageMetadata("/menu", "Menu – Mughlai, BBQ, Biryani & Seafood", "Full menu of Dawat Restaurant, Kheda with prices: soups, tandoori & kebab starters, Mughlai chicken and mutton curries, Raan, sizzlers, biryani, seafood, Chinese, breads and dessert.");
+export const metadata: Metadata = pageMetadata("/menu", "Menu – Mughlai, BBQ, Biryani & Seafood", "Dawat Restaurant Kheda menu with prices: tandoori & kebabs, Mughlai curries, Raan, sizzlers, biryani, seafood, Chinese, breads and dessert.");
 
 export default async function MenuPage() {
   const [site, menuCategories] = await Promise.all([getSite(), getMenu()]);

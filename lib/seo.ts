@@ -17,7 +17,7 @@ export const SEO = {
   name: "Dawat Restaurant",
   title: "Dawat Restaurant Kheda – Mughlai, BBQ, Biryani & Seafood",
   description:
-    "Dawat Restaurant on NH-8 Kajipura, Kheda, Gujarat: authentic Mughlai curries, charcoal BBQ & tandoor, Raan Biryani, sizzlers and seafood. Garden & rooftop seating, kids play area, free parking. Open daily 1 PM – 1 AM.",
+    "Dawat Restaurant, NH-8 Kajipura, Kheda: Mughlai curries, charcoal BBQ, Raan Biryani & seafood. Garden & rooftop seating, free parking. Open daily 1 PM – 1 AM.",
   keywords: [
     "Dawat Restaurant",
     "Dawat Restaurant Kheda",

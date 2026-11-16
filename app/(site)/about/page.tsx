@@ -9,7 +9,7 @@ import { getAbout, getSite } from "@/lib/content";
 import { primaryTel, telHref } from "@/lib/site";
 import "./about.css";
 
-export const metadata: Metadata = pageMetadata("/about", "About Us", "The story of Dawat Restaurant on NH-8 Kajipura, Kheda: authentic Mughlai, charcoal BBQ, Raan Biryani and seafood since 2019, with garden & rooftop seating, kids play area and free parking.");
+export const metadata: Metadata = pageMetadata("/about", "About Us", "Dawat Restaurant, NH-8 Kajipura, Kheda: Mughlai, charcoal BBQ, Raan Biryani & seafood since 2019. Garden & rooftop seating, kids play area, free parking.");
 
 const specialties = [
   {

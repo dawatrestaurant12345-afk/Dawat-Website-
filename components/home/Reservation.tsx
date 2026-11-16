@@ -1,6 +1,6 @@
 "use client";
 
-import type { FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import { IoCalendarClearOutline, IoChevronDown, IoPersonOutline, IoTimeOutline } from "react-icons/io5";
 import { Button } from "../Button";
 import { useSite } from "@/components/SiteProvider";
@@ -45,7 +45,15 @@ function sendBooking(e: FormEvent<HTMLFormElement>, whatsappNumber: string) {
 export default function Reservation({ standalone = false }: { standalone?: boolean }) {
   const site = useSite();
   const PRIMARY_TEL = primaryTel(site);
-  const today = new Date().toISOString().split("T")[0];
+
+  // Earliest bookable date = today on the visitor's own phone (local time, not UTC),
+  // worked out in the browser so a cached page never allows a past date.
+  const [today, setToday] = useState<string>();
+  useEffect(() => {
+    const d = new Date();
+    const pad = (n: number) => String(n).padStart(2, "0");
+    setToday(`${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`);
+  }, []);
 
   return (
     <section className={`reservation${standalone ? " reservation-standalone" : ""}`} id="reservation">
@@ -63,8 +71,30 @@ export default function Reservation({ standalone = false }: { standalone?: boole
             </p>
 
             <div className="input-wrapper">
-              <input type="text" name="name" placeholder="Your Name" autoComplete="name" required className="input-field" />
-              <input type="tel" name="phone" placeholder="Phone Number" autoComplete="tel" required className="input-field" />
+              <input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                aria-label="Your name"
+                autoComplete="name"
+                required
+                minLength={2}
+                maxLength={60}
+                className="input-field"
+              />
+              <input
+                type="tel"
+                name="phone"
+                placeholder="Phone Number"
+                aria-label="Phone number"
+                autoComplete="tel"
+                inputMode="tel"
+                required
+                pattern="[+]?[0-9 \-]{10,16}"
+                title="Enter a valid phone number, e.g. 98765 43210"
+                maxLength={16}
+                className="input-field"
+              />
             </div>
 
             <div className="input-wrapper">
@@ -89,7 +119,6 @@ export default function Reservation({ standalone = false }: { standalone?: boole
                   aria-label="Reservation date"
                   required
                   className="input-field"
-                  suppressHydrationWarning
                 />
                 <IoChevronDown aria-hidden="true" />
               </div>
@@ -110,6 +139,8 @@ export default function Reservation({ standalone = false }: { standalone?: boole
             <textarea
               name="message"
               placeholder="Message or Special Requests (e.g. Birthday, Anniversary, Rooftop seating)"
+              aria-label="Message or special requests"
+              maxLength={500}
               className="input-field"
             />
 

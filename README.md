@@ -16,7 +16,7 @@ npm start        # serve the production build
 
 1. **Environment** – `.env.local` must contain (see `.env.example`):
    ```
-   NEXT_PUBLIC_SUPABASE_URL=https://jtvdcezvsdcgwvuxomqa.supabase.co
+   NEXT_PUBLIC_SUPABASE_URL=https://YOUR-PROJECT.supabase.co
    NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_…
    ```
    Add the same two values in your hosting settings (e.g. Vercel → Project → Settings → Environment Variables).
@@ -47,7 +47,7 @@ app/
   layout.tsx          Root: fonts, metadata, global CSS
   (site)/layout.tsx   Public website shell: topbar, header, footer (loads details from Supabase)
   (site)/page.tsx     Home page; also about/, contact/, gallery/, menu/
-  admin/              Admin panel: login/, reset/ (password reset), page.tsx (dashboard)
+  admin/              Admin panel: login/, page.tsx (dashboard)
   api/revalidate/     Refreshes the website after an admin saves (admins only)
   globals.css         Design tokens + shared styles
 components/

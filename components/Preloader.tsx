@@ -17,8 +17,13 @@ export default function Preloader() {
       return;
     }
 
+    // Never keep visitors waiting on one slow image: hide the loader after 3s at most.
+    const fallback = window.setTimeout(finish, 3000);
     window.addEventListener("load", finish);
-    return () => window.removeEventListener("load", finish);
+    return () => {
+      window.clearTimeout(fallback);
+      window.removeEventListener("load", finish);
+    };
   }, []);
 
   return (
