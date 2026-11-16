@@ -16,7 +16,7 @@ const pageLinks = [
 
 export default async function Footer() {
   const site = await getSite();
-  const { primary, secondary, tertiary } = site.phones;
+  const { primary, secondary } = site.phones;
 
   const socialLinks = [
     { href: site.social.facebook, label: "Facebook" },
@@ -43,7 +43,7 @@ export default async function Footer() {
               Primary: {primary.label}
             </a>
             <a href={telHref(secondary.tel)} className="body-4 contact-link">
-              Booking: {secondary.label} / {tertiary.label}
+              Booking: {secondary.label}
             </a>
 
             <p className="body-4">Daily : {site.hours} (Open Daily)</p>

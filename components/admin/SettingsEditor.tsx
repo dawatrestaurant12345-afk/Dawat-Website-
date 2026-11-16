@@ -85,9 +85,6 @@ export default function SettingsEditor() {
           <Field label="Second number">
             <input type="tel" value={form.phones.secondary} onChange={(e) => set("phones", "secondary", e.target.value)} />
           </Field>
-          <Field label="Third number">
-            <input type="tel" value={form.phones.tertiary} onChange={(e) => set("phones", "tertiary", e.target.value)} />
-          </Field>
           <Field label="WhatsApp number" hint="Online table bookings and the WhatsApp button go to this number.">
             <input type="tel" value={form.whatsappNumber} onChange={(e) => set("whatsappNumber", e.target.value)} />
           </Field>

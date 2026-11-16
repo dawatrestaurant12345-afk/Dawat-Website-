@@ -21,7 +21,7 @@ export type SiteSettings = {
     full: string;
   };
   /** Phone numbers as shown to customers, e.g. "+91 83208 12121". */
-  phones: { primary: string; secondary: string; tertiary: string };
+  phones: { primary: string; secondary: string };
   whatsappNumber: string;
   social: { facebook: string; instagram: string };
   /** What Google Maps should search for to show the restaurant pin. */
@@ -40,8 +40,7 @@ export const DEFAULT_SETTINGS: SiteSettings = {
   },
   phones: {
     primary: "+91 83208 12121",
-    secondary: "+91 79849 05342",
-    tertiary: "+91 95370 05566",
+    secondary: "+91 95370 05566",
   },
   whatsappNumber: "+91 83208 12121",
   social: {
@@ -87,7 +86,7 @@ export const DEFAULT_ABOUT: AboutContent = {
 type Phone = { label: string; tel: string };
 
 export type Site = Omit<SiteSettings, "phones" | "social"> & {
-  phones: { primary: Phone; secondary: Phone; tertiary: Phone };
+  phones: { primary: Phone; secondary: Phone };
   whatsapp: string;
   social: SiteSettings["social"] & { maps: string; mapEmbed: string };
 };
@@ -109,7 +108,6 @@ export function buildSite(settings: SiteSettings): Site {
     phones: {
       primary: phone(settings.phones.primary),
       secondary: phone(settings.phones.secondary),
-      tertiary: phone(settings.phones.tertiary),
     },
     whatsapp: `https://wa.me/${waDigits}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`,
     social: {

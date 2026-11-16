@@ -55,7 +55,7 @@ export default async function ContactPage() {
   const site = await getSite();
   const PRIMARY_TEL = primaryTel(site);
   const faqs = getFaqs(site);
-  const { primary, secondary, tertiary } = site.phones;
+  const { primary, secondary } = site.phones;
 
   const cards = [
     {
@@ -65,7 +65,6 @@ export default async function ContactPage() {
         <>
           <a href={PRIMARY_TEL}>{primary.label}</a>
           <a href={telHref(secondary.tel)}>{secondary.label}</a>
-          <a href={telHref(tertiary.tel)}>{tertiary.label}</a>
         </>
       ),
       action: { href: PRIMARY_TEL, label: "Call Now" },

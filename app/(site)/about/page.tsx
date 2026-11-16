@@ -32,7 +32,7 @@ const specialties = [
 export default async function AboutPage() {
   const [site, about] = await Promise.all([getSite(), getAbout()]);
   const PRIMARY_TEL = primaryTel(site);
-  const { primary, secondary, tertiary } = site.phones;
+  const { primary, secondary } = site.phones;
 
   return (
     <>
@@ -153,8 +153,6 @@ export default async function AboutPage() {
                     <a href={PRIMARY_TEL}>{primary.label}</a>
                     {" / "}
                     <a href={telHref(secondary.tel)}>{secondary.label}</a>
-                    {" / "}
-                    <a href={telHref(tertiary.tel)}>{tertiary.label}</a>
                   </p>
                 </div>
               </li>

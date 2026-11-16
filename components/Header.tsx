@@ -54,7 +54,7 @@ export default function Header() {
   const isActive = (href: string) => href === pathname;
 
   const headerClass = ["header", scrolled && "active", hidden && "hide"].filter(Boolean).join(" ");
-  const { primary, secondary, tertiary } = site.phones;
+  const { primary, secondary } = site.phones;
 
   return (
     <header className={headerClass}>
@@ -96,7 +96,7 @@ export default function Header() {
             <p className="body-4 navbar-text">Open: {site.hours} Daily</p>
 
             <a href={telHref(secondary.tel)} className="body-4 sidebar-link">
-              {secondary.label} / {tertiary.label}
+              {secondary.label}
             </a>
 
             <div className="separator" />
