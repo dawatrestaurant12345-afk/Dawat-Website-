@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Breadcrumbs from "./Breadcrumbs";
 import type { LegalDoc } from "@/lib/legal";
 import { primaryTel, type Site } from "@/lib/site";
 
@@ -33,11 +34,22 @@ function Body({ text }: { text: string }) {
 }
 
 /** Privacy Policy / Terms & Conditions page body. */
-export default function LegalPage({ doc, site, other }: { doc: LegalDoc; site: Site; other: { href: string; label: string } }) {
+export default function LegalPage({
+  doc,
+  site,
+  path,
+  other,
+}: {
+  doc: LegalDoc;
+  site: Site;
+  path: string;
+  other: { href: string; label: string };
+}) {
   return (
     <>
       <section className="page-hero text-center" style={{ backgroundImage: "url('/images/about-overlay.webp')" }}>
         <div className="container">
+          <Breadcrumbs name={doc.title} path={path} />
           <p className="label-2 section-subtitle">{site.name}</p>
           <h1 className="display-1 hero-title">{doc.title}</h1>
           {doc.updated && <p className="body-2 hero-text">Last updated: {doc.updated}</p>}

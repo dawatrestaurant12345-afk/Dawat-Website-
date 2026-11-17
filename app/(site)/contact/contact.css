@@ -170,51 +170,7 @@
 
 .contact-faq .section-title { margin-block-end: 40px; }
 
-.faq-list {
-  display: grid;
-  gap: 14px;
-  max-width: 820px;
-  margin-inline: auto;
-}
 
-.faq-item {
-  border: 1px solid var(--white-alpha-10);
-  border-radius: 16px;
-  background-color: var(--eerie-black-2);
-  transition: border-color var(--transition-1);
-}
-
-.faq-item[open] { border-color: var(--gold-crayola); }
-
-.faq-question {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 15px;
-  padding: 18px 22px;
-  cursor: pointer;
-  list-style: none;
-  color: var(--white);
-  font-family: var(--fontFamily-forum);
-  font-size: var(--fontSize-title-3);
-}
-
-.faq-question::-webkit-details-marker { display: none; }
-
-.faq-question svg {
-  flex-shrink: 0;
-  color: var(--gold-crayola);
-  font-size: 1.8rem;
-  transition: transform var(--transition-1);
-}
-
-.faq-item[open] .faq-question svg { transform: rotate(180deg); }
-
-.faq-answer {
-  padding: 0 22px 20px;
-  color: var(--quick-silver);
-  line-height: var(--lineHeight-4);
-}
 
 
 /**

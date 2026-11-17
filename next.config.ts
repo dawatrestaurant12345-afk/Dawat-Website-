@@ -50,6 +50,24 @@ const nextConfig: NextConfig = {
       ? [{ protocol: "https", hostname: supabaseHost, pathname: "/storage/v1/object/public/**" }]
       : [],
   },
+  // Old static-site addresses (and common variants) go straight to the new pages,
+  // with a permanent redirect so any Google ranking they had carries over.
+  async redirects() {
+    const pages: [string, string][] = [
+      ["/index.html", "/"],
+      ["/home", "/"],
+      ["/menu.html", "/menu"],
+      ["/menus", "/menu"],
+      ["/about.html", "/about"],
+      ["/about-us", "/about"],
+      ["/gallery.html", "/gallery"],
+      ["/contact.html", "/contact"],
+      ["/contact-us", "/contact"],
+      ["/privacy", "/privacy-policy"],
+      ["/terms", "/terms-and-conditions"],
+    ];
+    return pages.map(([source, destination]) => ({ source, destination, permanent: true }));
+  },
   async headers() {
     return [
       { source: "/:path*", headers: securityHeaders },

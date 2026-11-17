@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { pageMetadata } from "@/lib/page-meta";
 import { ButtonLink } from "@/components/Button";
 import MenuBrowser from "@/components/menu/MenuBrowser";
 import { getMenu, getSite } from "@/lib/content";
+import JsonLd from "@/components/JsonLd";
+import { menuSchema } from "@/lib/schema";
 import "./menu.css";
 
-export const metadata: Metadata = pageMetadata("/menu", "Menu – Mughlai, BBQ, Biryani & Seafood", "Dawat Restaurant Kheda menu with prices: tandoori & kebabs, Mughlai curries, Raan, sizzlers, biryani, seafood, Chinese, breads and dessert.");
+export const metadata: Metadata = pageMetadata("/menu", "Menu & Prices – BBQ, Biryani, Mughlai", "Dawat Restaurant Kheda menu with prices: tandoori & kebabs, Mughlai curries, Raan, sizzlers, biryani, seafood, Chinese, breads and dessert.");
 
 export default async function MenuPage() {
   const [site, menuCategories] = await Promise.all([getSite(), getMenu()]);
@@ -14,6 +17,7 @@ export default async function MenuPage() {
     <>
       <section className="page-hero text-center" style={{ backgroundImage: "url('/images/hero-slider-1.jpg')" }}>
         <div className="container">
+          <Breadcrumbs name="Menu" path="/menu" />
           <p className="label-2 section-subtitle">{site.tagline}</p>
           <h1 className="display-1 hero-title">Our Complete Menu</h1>
           <p className="body-2 hero-text">
@@ -25,6 +29,7 @@ export default async function MenuPage() {
       </section>
 
       <MenuBrowser categories={menuCategories} />
+      <JsonLd data={menuSchema(menuCategories)} />
 
       <section className="section menu-cta-section">
         <div className="container">

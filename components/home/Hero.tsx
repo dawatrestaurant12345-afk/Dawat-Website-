@@ -30,13 +30,14 @@ export default function Hero() {
   };
 
   return (
-    <section className="hero text-center" aria-label="home" id="home">
+    <section className="hero text-center" aria-labelledby="home-title" id="home">
+      {/* The page's main heading for search engines and screen readers; the slides keep their look. */}
+      <h1 className="sr-only" id="home-title">
+        Dawat Restaurant – Best Family Restaurant in Kheda, Gujarat on NH-8
+      </h1>
       <ul className="hero-slider">
         {heroSlides.map((slide, i) => {
           const isActive = i === current;
-          // Only the visible slide is the page's <h1>.
-          const Heading = isActive ? "h1" : "h2";
-
           return (
           <li key={slide.image} className={`slider-item${isActive ? " active" : ""}`} aria-hidden={!isActive}>
             <div className="slider-bg">
@@ -53,10 +54,10 @@ export default function Hero() {
 
             <p className="label-2 section-subtitle slider-reveal">{slide.subtitle}</p>
 
-            <Heading className="display-1 hero-title slider-reveal">
+            <p className="display-1 hero-title slider-reveal">
               {slide.title[0]} <br />
               {slide.title[1]}
-            </Heading>
+            </p>
 
             <p className="body-2 hero-text slider-reveal">{slide.text}</p>
 

@@ -12,5 +12,5 @@ export const metadata: Metadata = pageMetadata(
 
 export default async function TermsPage() {
   const [doc, site] = await Promise.all([getLegalDoc("terms"), getSite()]);
-  return <LegalPage doc={doc} site={site} other={{ href: "/privacy-policy", label: "Privacy Policy" }} />;
+  return <LegalPage doc={doc} site={site} path="/terms-and-conditions" other={{ href: "/privacy-policy", label: "Privacy Policy" }} />;
 }

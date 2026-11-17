@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/page-meta";
-import type { ReactNode } from "react";
 import {
   IoCallOutline,
-  IoChevronDown,
   IoLocationOutline,
   IoLogoFacebook,
   IoLogoInstagram,
@@ -14,47 +12,17 @@ import {
 import { ButtonLink, SectionHeading } from "@/components/Button";
 import Reservation from "@/components/home/Reservation";
 import { getSite } from "@/lib/content";
-import { primaryTel, telHref, type Site } from "@/lib/site";
+import { primaryTel, telHref } from "@/lib/site";
+import FaqList from "@/components/FaqList";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import { getContactFaqs } from "@/lib/faq";
 import "./contact.css";
 
 export const metadata: Metadata = pageMetadata("/contact", "Contact & Table Booking", "Call, WhatsApp or visit Dawat Restaurant on NH-8 Kajipura, Kheda, Gujarat. Open daily 1 PM – 1 AM. Book your table online for family dinners and parties.");
 
-const getFaqs = (site: Site): { q: string; a: ReactNode }[] => [
-  {
-    q: "What are your opening hours?",
-    a: <>We are open every day of the week, from {site.hours}.</>,
-  },
-  {
-    q: "How can I book a table?",
-    a: (
-      <>
-        Call us on {site.phones.primary.label}, send us a WhatsApp message, or fill the reservation form on this
-        page. It sends your booking details to us on WhatsApp.
-      </>
-    ),
-  },
-  {
-    q: "Can I book for a family function or big party?",
-    a: <>Yes. Choose “Family / Big Party” in the form or call us, and we will arrange seating for your group.</>,
-  },
-  {
-    q: "Is the restaurant good for kids?",
-    a: <>Absolutely. We have a kids play area, jhula (swings) and an open garden, so the whole family can relax.</>,
-  },
-  {
-    q: "Is parking available?",
-    a: <>Yes, we have a huge free parking space right on the NH-8 highway.</>,
-  },
-  {
-    q: "Is your food halal?",
-    a: <>Yes, we serve authentic halal Non-Veg, Mughlai, BBQ and seafood, along with veg specials and sizzlers.</>,
-  },
-];
-
 export default async function ContactPage() {
   const site = await getSite();
   const PRIMARY_TEL = primaryTel(site);
-  const faqs = getFaqs(site);
   const { primary, secondary } = site.phones;
 
   const cards = [
@@ -99,6 +67,7 @@ export default async function ContactPage() {
       {/* Page hero */}
       <section className="page-hero text-center" style={{ backgroundImage: "url('/images/about-overlay.webp')" }}>
         <div className="container">
+          <Breadcrumbs name="Contact Us" path="/contact" />
           <p className="label-2 section-subtitle">We&apos;d Love To Host You</p>
           <h1 className="display-1 hero-title">Contact Us</h1>
           <p className="body-2 hero-text">
@@ -189,17 +158,7 @@ export default async function ContactPage() {
         <div className="container">
           <SectionHeading subtitle="Good To Know" title="Frequently Asked Questions" id="faq-label" center />
 
-          <div className="faq-list">
-            {faqs.map(({ q, a }, i) => (
-              <details key={q} className="faq-item" open={i === 0}>
-                <summary className="faq-question">
-                  <span>{q}</span>
-                  <IoChevronDown aria-hidden="true" />
-                </summary>
-                <p className="faq-answer">{a}</p>
-              </details>
-            ))}
-          </div>
+          <FaqList faqs={getContactFaqs(site)} />
         </div>
       </section>
     </>

@@ -1,24 +1,31 @@
+import JsonLd from "./JsonLd";
 import type { Site } from "@/lib/site";
-import { SITE_URL } from "@/lib/seo";
+import { SEO, SITE_URL } from "@/lib/seo";
+import { RESTAURANT_ID, absoluteUrl } from "@/lib/schema";
 
 /**
- * Structured data (schema.org Restaurant) so Google can show the restaurant's
- * address, phone, opening hours, cuisine and menu link in search results.
- * Only real details from the restaurant settings are used — no invented ratings.
+ * Sitewide structured data (schema.org Restaurant + WebSite) so Google can show the
+ * restaurant's address, phone, opening hours, cuisine and menu in search and Maps.
+ * Only real details from the restaurant settings are used — no invented ratings or reviews.
  */
 export default function RestaurantSchema({ site }: { site: Site }) {
-  const sameAs = [site.social.facebook, site.social.instagram].filter(Boolean);
+  const sameAs = [site.social.facebook, site.social.instagram, site.social.maps].filter(Boolean);
 
-  const data = {
-    "@context": "https://schema.org",
+  const restaurant = {
     "@type": "Restaurant",
-    "@id": `${SITE_URL}/#restaurant`,
+    "@id": RESTAURANT_ID,
     name: site.name,
+    alternateName: ["Dawat Restaurant Kheda", "Dawat Kheda", "Dawat Restaurant Kajipura"],
     url: SITE_URL,
-    image: `${SITE_URL}/opengraph-image`,
-    logo: `${SITE_URL}/images/logo.png`,
+    image: [
+      absoluteUrl("/opengraph-image"),
+      absoluteUrl("/images/hero-slider-1.jpg"),
+      absoluteUrl("/images/about-main.webp"),
+    ],
+    logo: absoluteUrl("/images/logo.png"),
     description:
-      "Family restaurant on NH-8 Kajipura, Kheda serving authentic Mughlai, charcoal BBQ & tandoor, Raan Biryani, sizzlers and seafood.",
+      "Family restaurant on NH-8 at Kajipura, Kheda, Gujarat, an easy drive from Ahmedabad and Nadiad. Authentic Mughlai, charcoal BBQ & tandoor, Raan Biryani, sizzlers, seafood and veg specials, with an AC hall, garden and rooftop seating, kids play area and free parking.",
+    slogan: site.tagline,
     telephone: site.phones.primary.tel,
     address: {
       "@type": "PostalAddress",
@@ -29,10 +36,14 @@ export default function RestaurantSchema({ site }: { site: Site }) {
       addressCountry: "IN",
     },
     hasMap: site.social.maps,
-    servesCuisine: ["Mughlai", "North Indian", "Tandoor", "Barbecue", "Biryani", "Seafood", "Chinese"],
+    areaServed: ["Kheda", "Kajipura", "Nadiad", "Mehmedabad", "Matar", "Ahmedabad", "Kheda district"].map(
+      (name) => ({ "@type": "Place", name }),
+    ),
+    servesCuisine: ["Mughlai", "North Indian", "Tandoor", "Barbecue", "Biryani", "Seafood", "Chinese", "Vegetarian"],
     priceRange: "₹₹",
+    currenciesAccepted: "INR",
     acceptsReservations: true,
-    hasMenu: `${SITE_URL}/menu`,
+    hasMenu: `${absoluteUrl("/menu")}#menu`,
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
@@ -41,17 +52,27 @@ export default function RestaurantSchema({ site }: { site: Site }) {
         closes: "01:00",
       },
     ],
-    amenityFeature: ["Outdoor seating", "Rooftop seating", "Kids play area", "Free parking", "Air-conditioned hall"].map(
-      (name) => ({ "@type": "LocationFeatureSpecification", name, value: true }),
-    ),
+    amenityFeature: [
+      "Outdoor garden seating",
+      "Rooftop seating",
+      "Air-conditioned hall",
+      "Kids play area",
+      "Free parking",
+      "Family friendly",
+      "Halal food",
+    ].map((name) => ({ "@type": "LocationFeatureSpecification", name, value: true })),
+    keywords: SEO.keywords.join(", "),
     ...(sameAs.length ? { sameAs } : {}),
   };
 
-  return (
-    <script
-      type="application/ld+json"
-      // JSON.stringify output with "<" escaped cannot break out of the script tag.
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data).replace(/</g, "\\u003c") }}
-    />
-  );
+  const website = {
+    "@type": "WebSite",
+    "@id": `${SITE_URL}/#website`,
+    url: SITE_URL,
+    name: site.name,
+    inLanguage: "en-IN",
+    publisher: { "@id": RESTAURANT_ID },
+  };
+
+  return <JsonLd data={{ "@context": "https://schema.org", "@graph": [restaurant, website] }} />;
 }

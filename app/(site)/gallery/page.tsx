@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { pageMetadata } from "@/lib/page-meta";
 import { ButtonLink, SectionHeading } from "@/components/Button";
 import Facilities from "@/components/Facilities";
@@ -17,6 +18,7 @@ export default async function GalleryPage() {
     <>
       <section className="page-hero text-center" style={{ backgroundImage: "url('/images/about-overlay.webp')" }}>
         <div className="container">
+          <Breadcrumbs name="Gallery" path="/gallery" />
           <p className="label-2 section-subtitle">{site.tagline}</p>
           <h1 className="display-1 hero-title">Our Gallery</h1>
           <p className="body-2 hero-text">

@@ -5,6 +5,7 @@ import Hero from "@/components/home/Hero";
 import Reservation from "@/components/home/Reservation";
 import Services from "@/components/home/Services";
 import Testimonial from "@/components/home/Testimonial";
+import LocalGuide from "@/components/home/LocalGuide";
 import SpecialDish from "@/components/home/SpecialDish";
 
 export default function HomePage() {
@@ -17,6 +18,7 @@ export default function HomePage() {
       <FeaturedMenu />
       <Features />
       <Testimonial />
+      <LocalGuide />
       <Reservation />
     </>
   );

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { pageMetadata } from "@/lib/page-meta";
 import Image from "next/image";
 import { IoCallOutline, IoLocationOutline, IoTimeOutline } from "react-icons/io5";
@@ -9,7 +10,7 @@ import { getAbout, getSite } from "@/lib/content";
 import { primaryTel, telHref } from "@/lib/site";
 import "./about.css";
 
-export const metadata: Metadata = pageMetadata("/about", "About Us", "Dawat Restaurant, NH-8 Kajipura, Kheda: Mughlai, charcoal BBQ, Raan Biryani & seafood since 2019. Garden & rooftop seating, kids play area, free parking.");
+export const metadata: Metadata = pageMetadata("/about", "About Us – Family Restaurant", "Dawat Restaurant, NH-8 Kajipura, Kheda: Mughlai, charcoal BBQ, Raan Biryani & seafood since 2019. Garden & rooftop seating, kids play area, free parking.");
 
 const specialties = [
   {
@@ -39,6 +40,7 @@ export default async function AboutPage() {
       {/* Page hero */}
       <section className="page-hero text-center" style={{ backgroundImage: "url('/images/about-main.webp')" }}>
         <div className="container">
+          <Breadcrumbs name="About Us" path="/about" />
           <p className="label-2 section-subtitle">{site.tagline}</p>
           <h1 className="display-1 hero-title">About Dawat</h1>
           <p className="body-2 hero-text">{about.heroText}</p>
