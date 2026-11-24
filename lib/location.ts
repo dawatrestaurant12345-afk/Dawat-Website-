@@ -21,7 +21,11 @@ export const getLocationFaqs = (site: Site): Faq[] => [
     a: `We are an easy drive from Ahmedabad on NH-8 at Kajipura, Kheda. Tap "Directions from Ahmedabad" on this page to open live Google Maps directions, or call ${site.phones.primary.label} and we will guide you.`,
   },
   {
-    q: "Is Dawat Restaurant a good stop on the highway?",
+    q: "Is Dawat Restaurant near Nadiad and Kheda?",
+    a: `Yes. We are at Kajipura on NH-8 in Kheda, a short drive from Nadiad, Mehmedabad and Matar. Tap "Directions from Nadiad" or "Directions from Kheda" on this page for live Google Maps directions.`,
+  },
+  {
+    q: "Is Dawat Restaurant a good stop on the Ahmedabad highway?",
     a: `Yes. We are right on NH-8 with a large free parking area, clean seating in an AC hall, garden and rooftop, and we are open every day from ${site.hours}, so it is easy to stop for lunch or a late dinner.`,
   },
   {

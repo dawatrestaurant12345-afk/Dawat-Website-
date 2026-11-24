@@ -17,7 +17,7 @@ export const SEO = {
   name: "Dawat Restaurant",
   title: "Dawat Restaurant – Best Restaurant in Kheda | Mughlai & BBQ",
   description:
-    "Best family restaurant in Kheda on NH-8 Kajipura, near Ahmedabad & Nadiad: Mughlai, charcoal BBQ, Raan Biryani & seafood. Free parking. Open daily 1 PM–1 AM.",
+    "Best restaurant in Kheda on the Ahmedabad highway (NH-8), near Nadiad: Mughlai, charcoal BBQ, Raan Biryani & seafood. Free parking. Open daily 1 PM–1 AM.",
   keywords: [
     "Dawat Restaurant",
     "Dawat Restaurant Kheda",
@@ -27,7 +27,11 @@ export const SEO = {
     "family restaurant in Kheda",
     "non veg restaurant in Kheda",
     "restaurant near Ahmedabad on highway",
+    "best restaurant near Ahmedabad",
+    "restaurant on Ahmedabad highway",
     "restaurant near Nadiad",
+    "best restaurant near Nadiad",
+    "restaurant near Kheda",
     "highway restaurant NH-8 Gujarat",
     "Mughlai restaurant Gujarat",
     "BBQ restaurant Kheda",

@@ -11,8 +11,12 @@ export const getHomeFaqs = (site: Site): Faq[] => [
     a: `${site.name} on NH-8 at Kajipura, Kheda is a favourite with families for authentic Mughlai food, charcoal BBQ, Raan Biryani and seafood. It has an AC hall, garden and rooftop seating, a kids play area and free parking, and is open every day from ${site.hours}.`,
   },
   {
-    q: "Is there a good non-veg restaurant near Ahmedabad on the highway?",
+    q: "Which is the best restaurant near Ahmedabad on the highway?",
     a: `Yes. ${site.name} is on NH-8 at Kajipura, Kheda, an easy drive from Ahmedabad and Nadiad. Travellers stop for our BBQ platters, sizzlers, tandoori starters and Raan Biryani, with plenty of free parking right on the highway.`,
+  },
+  {
+    q: "Is there a good restaurant near Nadiad?",
+    a: `Yes. ${site.name} at Kajipura, Kheda is a short drive from Nadiad. Families from Nadiad, Kheda, Mehmedabad and Matar come for our Mughlai food, BBQ, Raan Biryani and sizzlers, the garden and rooftop seating and the kids play area.`,
   },
   {
     q: "What is Dawat Restaurant famous for?",

@@ -14,7 +14,7 @@ export default async function LocalGuide() {
   const site = await getSite();
 
   const facts = [
-    { label: "Location", value: <>NH-8, Kajipura, Kheda, Gujarat 387120 — easy drive from Ahmedabad &amp; Nadiad</> },
+    { label: "Location", value: <>On the Ahmedabad highway (NH-8), Kajipura, Kheda 387120 — near Nadiad</> },
     { label: "Timings", value: <>Open every day, {site.hours}</> },
     { label: "Cuisine", value: <>Mughlai, BBQ &amp; Tandoor, Biryani, Seafood, Chinese, Veg</> },
     { label: "Seating", value: <>AC hall, open garden &amp; rooftop, kids play area</> },
@@ -40,7 +40,7 @@ export default async function LocalGuide() {
           center
         >
           <p className="section-text local-guide-summary">
-            {site.name} is a family restaurant on NH-8 at Kajipura, Kheda, an easy drive from Ahmedabad and
+            {site.name} is a family restaurant on the Ahmedabad highway (NH-8) at Kajipura, Kheda, near
             Nadiad. We serve authentic Mughlai curries, charcoal BBQ and tandoor, Raan Biryani, sizzlers, seafood
             and veg specials, with an AC hall, garden and rooftop seating, a kids play area and free parking.
           </p>

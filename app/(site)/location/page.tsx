@@ -12,8 +12,8 @@ import "./location.css";
 
 export const metadata: Metadata = pageMetadata(
   "/location",
-  "Location & Directions – Near Ahmedabad",
-  "Find Dawat Restaurant on NH-8 Kajipura, Kheda, opp. Sumar Logistics near Coca-Cola. Directions from Ahmedabad, Nadiad & Kheda, timings, parking and phone.",
+  "Ahmedabad Highway, Near Nadiad",
+  "Dawat Restaurant is on the Ahmedabad highway (NH-8) at Kajipura, Kheda, near Nadiad. Opp. Sumar Logistics. Directions from Ahmedabad, Nadiad & Kheda, parking.",
 );
 
 export default async function LocationPage() {
@@ -32,7 +32,7 @@ export default async function LocationPage() {
       <section className="page-hero text-center" style={{ backgroundImage: "url('/images/about-overlay.webp')" }}>
         <div className="container">
           <Breadcrumbs name="Location" path="/location" />
-          <p className="label-2 section-subtitle">On NH-8, Kajipura, Kheda</p>
+          <p className="label-2 section-subtitle">On The Ahmedabad Highway · Near Nadiad</p>
           <h1 className="display-1 hero-title">Dawat Restaurant Location</h1>
           <p className="body-2 hero-text">
             Opposite Sumar Logistics, near Coca-Cola, on the highway at Kajipura, Kheda. An easy drive from
