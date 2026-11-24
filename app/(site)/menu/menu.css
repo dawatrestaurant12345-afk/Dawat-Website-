@@ -288,3 +288,5 @@
 @media (min-width: 1200px) {
   .menu-cards { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; }
 }
+
+.menu-panel[hidden] { display: none; }

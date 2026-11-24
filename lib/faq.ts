@@ -24,7 +24,7 @@ export const getHomeFaqs = (site: Site): Faq[] => [
   },
   {
     q: "Where exactly is Dawat Restaurant?",
-    a: `${site.address.full}. Use the Google Maps link on our Contact page for directions. Call ${site.phones.primary.label} if you need help finding us.`,
+    a: `${site.address.full}. Our Location page has live Google Maps directions from Ahmedabad, Nadiad and Kheda. Call ${site.phones.primary.label} if you need help finding us.`,
   },
 ];
 

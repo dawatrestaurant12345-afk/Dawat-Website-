@@ -10,6 +10,7 @@ const pageLinks = [
   { href: "/about", label: "About Us" },
   { href: "/gallery", label: "Gallery" },
   { href: "/#features", label: "Specialties" },
+  { href: "/location", label: "Location" },
   { href: "/#reservation", label: "Book Table" },
   { href: "/contact", label: "Contact Us" },
 ];

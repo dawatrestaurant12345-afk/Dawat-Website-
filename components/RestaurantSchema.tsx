@@ -69,7 +69,9 @@ export default function RestaurantSchema({ site }: { site: Site }) {
     "@type": "WebSite",
     "@id": `${SITE_URL}/#website`,
     url: SITE_URL,
+    // The site name Google shows above results ("Dawat Restaurant").
     name: site.name,
+    alternateName: ["Dawat Restaurant Kheda", "Dawat Kheda"],
     inLanguage: "en-IN",
     publisher: { "@id": RESTAURANT_ID },
   };

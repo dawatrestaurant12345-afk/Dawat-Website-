@@ -1,0 +1,48 @@
+/* Location page: "Directions from …" buttons (map, cards and FAQ reuse contact.css / globals). */
+
+.directions-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  max-width: 900px;
+  margin-inline: auto;
+  margin-block-end: 40px;
+}
+
+.directions-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 12px 18px;
+  border: 1px solid var(--white-alpha-10);
+  border-radius: 999px;
+  background-color: var(--eerie-black-2);
+  color: var(--white);
+  transition: border-color var(--transition-1), color var(--transition-1);
+}
+
+.directions-link svg {
+  flex-shrink: 0;
+  color: var(--gold-crayola);
+  font-size: 1.8rem;
+}
+
+.directions-link:is(:hover, :focus-visible) {
+  border-color: var(--gold-crayola);
+  color: var(--gold-crayola);
+}
+
+.location-cta {
+  justify-content: center;
+  margin-block-start: 40px;
+}
+
+@media (min-width: 576px) {
+  .directions-list { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 992px) {
+  .directions-list { grid-template-columns: repeat(3, 1fr); }
+}

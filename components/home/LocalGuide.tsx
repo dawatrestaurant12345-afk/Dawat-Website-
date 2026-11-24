@@ -60,7 +60,7 @@ export default async function LocalGuide() {
 
         <p className="local-guide-links text-center">
           See our <Link href="/menu">full menu with prices</Link>, <Link href="/gallery">photos of the restaurant</Link>{" "}
-          and <Link href="/contact">directions &amp; contact details</Link>.
+          and <Link href="/location">location &amp; directions from Ahmedabad</Link>.
         </p>
       </div>
     </section>
