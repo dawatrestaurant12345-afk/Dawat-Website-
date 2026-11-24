@@ -4,7 +4,7 @@ export default function Testimonial() {
   return (
     <section
       className="section testi text-center has-bg-image"
-      style={{ backgroundImage: "url('/images/testimonial-bg.jpg')" }}
+      style={{ backgroundImage: "url('/images/testimonial-bg.webp')" }}
       aria-label="testimonials"
     >
       <div className="container">

@@ -36,7 +36,7 @@ export default function AdminLoginPage() {
   return (
     <main className="admin-login">
       <form className="admin-login-card" onSubmit={signIn}>
-        <Image src="/images/logo.svg" width={160} height={50} alt="Dawat Restaurant" className="admin-login-logo" priority />
+        <Image src="/images/logo-dawat.png" width={160} height={50} alt="Dawat Restaurant" className="admin-login-logo" priority />
         <h1>Admin Panel</h1>
         <p className="admin-muted">Sign in to update the menu, prices and restaurant details.</p>
 

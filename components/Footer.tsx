@@ -35,13 +35,13 @@ export default async function Footer() {
     <footer
       id="contact"
       className="footer section has-bg-image text-center"
-      style={{ backgroundImage: "url('/images/footer-bg.jpg')" }}
+      style={{ backgroundImage: "url('/images/footer-bg.webp')" }}
     >
       <div className="container">
         <div className="footer-top grid-list">
           <div className="footer-brand has-before has-after">
             <Link href="/" className="logo">
-              <Image src="/images/logo.svg" width={160} height={50} alt="Dawat Restaurant Home" />
+              <Image src="/images/logo-dawat.png" width={160} height={50} alt="Dawat Restaurant Home" />
             </Link>
 
             <address className="body-4">{site.address.full}</address>

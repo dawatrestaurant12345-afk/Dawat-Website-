@@ -38,7 +38,7 @@ export default async function AboutPage() {
   return (
     <>
       {/* Page hero */}
-      <section className="page-hero text-center" style={{ backgroundImage: "url('/images/about-main.webp')" }}>
+      <section className="page-hero text-center" style={{ backgroundImage: "url('/images/about-main-opt.webp')" }}>
         <div className="container">
           <Breadcrumbs name="About Us" path="/about" />
           <p className="label-2 section-subtitle">{site.tagline}</p>

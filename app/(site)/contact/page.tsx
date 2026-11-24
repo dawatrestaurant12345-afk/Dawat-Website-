@@ -65,7 +65,7 @@ export default async function ContactPage() {
   return (
     <>
       {/* Page hero */}
-      <section className="page-hero text-center" style={{ backgroundImage: "url('/images/about-overlay.webp')" }}>
+      <section className="page-hero text-center" style={{ backgroundImage: "url('/images/about-overlay-opt.webp')" }}>
         <div className="container">
           <Breadcrumbs name="Contact Us" path="/contact" />
           <p className="label-2 section-subtitle">We&apos;d Love To Host You</p>

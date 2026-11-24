@@ -47,7 +47,7 @@ export default function LegalPage({
 }) {
   return (
     <>
-      <section className="page-hero text-center" style={{ backgroundImage: "url('/images/about-overlay.webp')" }}>
+      <section className="page-hero text-center" style={{ backgroundImage: "url('/images/about-overlay-opt.webp')" }}>
         <div className="container">
           <Breadcrumbs name={doc.title} path={path} />
           <p className="label-2 section-subtitle">{site.name}</p>

@@ -12,7 +12,7 @@ export default function NotFound() {
   return (
     <main className="not-found">
       <Link href="/" className="logo" aria-label="Dawat Restaurant home">
-        <Image src="/images/logo.svg" width={160} height={50} alt="Dawat Restaurant" priority />
+        <Image src="/images/logo-dawat.png" width={160} height={50} alt="Dawat Restaurant" priority />
       </Link>
       <p className="label-2 section-subtitle">Error 404</p>
       <h1 className="headline-1">This page isn&apos;t on the menu</h1>

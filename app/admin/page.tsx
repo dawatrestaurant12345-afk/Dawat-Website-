@@ -62,7 +62,7 @@ export default function AdminDashboardPage() {
       <header className="admin-topbar">
         <div className="admin-topbar-inner">
           <Link href="/admin" className="admin-brand">
-            <Image src="/images/logo.svg" width={120} height={38} alt="Dawat Restaurant" />
+            <Image src="/images/logo-dawat.png" width={120} height={38} alt="Dawat Restaurant" />
             <span>Admin</span>
           </Link>
 

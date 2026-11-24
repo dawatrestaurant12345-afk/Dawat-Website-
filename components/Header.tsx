@@ -13,7 +13,7 @@ import { primaryTel, telHref } from "@/lib/site";
 function Logo() {
   return (
     <Link href="/" className="logo">
-      <Image src="/images/logo.svg" width={160} height={50} alt="Dawat Restaurant - Home" priority />
+      <Image src="/images/logo-dawat.png" width={160} height={50} alt="Dawat Restaurant - Home" priority />
     </Link>
   );
 }

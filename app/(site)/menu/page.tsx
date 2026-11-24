@@ -15,7 +15,7 @@ export default async function MenuPage() {
 
   return (
     <>
-      <section className="page-hero text-center" style={{ backgroundImage: "url('/images/hero-slider-1.jpg')" }}>
+      <section className="page-hero text-center" style={{ backgroundImage: "url('/images/hero-slider-1-bg.webp')" }}>
         <div className="container">
           <Breadcrumbs name="Menu" path="/menu" />
           <p className="label-2 section-subtitle">{site.tagline}</p>

@@ -29,7 +29,7 @@ export default async function LocationPage() {
 
   return (
     <>
-      <section className="page-hero text-center" style={{ backgroundImage: "url('/images/about-overlay.webp')" }}>
+      <section className="page-hero text-center" style={{ backgroundImage: "url('/images/about-overlay-opt.webp')" }}>
         <div className="container">
           <Breadcrumbs name="Location" path="/location" />
           <p className="label-2 section-subtitle">On The Ahmedabad Highway · Near Nadiad</p>
