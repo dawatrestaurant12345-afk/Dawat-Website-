@@ -11,6 +11,7 @@ const pageLinks = [
   { href: "/gallery", label: "Gallery" },
   { href: "/#features", label: "Specialties" },
   { href: "/location", label: "Location" },
+  { href: "/best-restaurant-in-kheda", label: "Best Restaurant in Kheda" },
   { href: "/#reservation", label: "Book Table" },
   { href: "/contact", label: "Contact Us" },
 ];

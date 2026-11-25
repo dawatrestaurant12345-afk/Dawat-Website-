@@ -26,6 +26,7 @@ export async function GET() {
     `- [Menu with prices](${absoluteUrl("/menu")}): ${menu.reduce((n, c) => n + c.items.length, 0)} dishes in ${menu.length} categories, prices in INR`,
     `- [About Us](${absoluteUrl("/about")}): our story and specialities`,
     `- [Gallery](${absoluteUrl("/gallery")}): photos of food, AC hall, garden and rooftop`,
+    `- [Best restaurant in Kheda, near Ahmedabad](${absoluteUrl("/best-restaurant-in-kheda")}): why guests choose Dawat, signature dishes, at-a-glance facts`,
     `- [Location & directions](${absoluteUrl("/location")}): address, landmarks, directions from Ahmedabad, Nadiad and Kheda`,
     `- [Contact & table booking](${absoluteUrl("/contact")}): phone, WhatsApp, map and FAQs`,
     "",

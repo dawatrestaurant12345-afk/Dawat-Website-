@@ -1,0 +1,63 @@
+/* "Best Restaurant in Kheda" page: reasons grid, at-a-glance table (cards, map and
+   directions reuse contact.css / location.css). */
+
+.best-reasons { margin-block-start: 40px; }
+
+.best-glance .section-title { margin-block-end: 36px; }
+
+.glance-table {
+  width: 100%;
+  max-width: 820px;
+  margin-inline: auto;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--white-alpha-10);
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: var(--eerie-black-2);
+}
+
+.glance-table th,
+.glance-table td {
+  padding: 16px 20px;
+  text-align: left;
+  vertical-align: top;
+  line-height: var(--lineHeight-4);
+}
+
+.glance-table tr + tr :is(th, td) { border-block-start: 1px solid var(--white-alpha-10); }
+
+.glance-table th {
+  width: 32%;
+  color: var(--gold-crayola);
+  font-weight: var(--weight-bold);
+}
+
+.glance-table td { color: var(--white); }
+
+.glance-table a,
+.best-inline-link {
+  display: inline;
+  color: var(--gold-crayola);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 575px) {
+  .glance-table th,
+  .glance-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .glance-table td { padding-block-start: 0; }
+
+  .glance-table tr + tr th { border-block-start: 1px solid var(--white-alpha-10); }
+
+  .glance-table tr + tr td { border-block-start: 0; }
+}
+
+/* Six reasons read best as 3 × 2 on wide screens (contact cards default to 4 across). */
+@media (min-width: 992px) {
+  .contact-cards.best-reasons { grid-template-columns: repeat(3, 1fr); }
+}

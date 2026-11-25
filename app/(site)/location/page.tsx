@@ -102,8 +102,9 @@ export default async function LocationPage() {
           <SectionHeading subtitle="Good To Know" title="Location Questions" id="location-faq-label" center />
           <FaqList faqs={getLocationFaqs(site)} />
           <div className="btn-group location-cta">
-            <ButtonLink href="/menu" label="See The Menu" />
-            <ButtonLink href="/contact#reservation" label="Book A Table" variant="secondary" />
+            <ButtonLink href="/best-restaurant-in-kheda" label="Why Guests Choose Dawat" />
+            <ButtonLink href="/menu" label="See The Menu" variant="secondary" />
+            <ButtonLink href="/contact#reservation" label="Book A Table" />
           </div>
         </div>
       </section>
