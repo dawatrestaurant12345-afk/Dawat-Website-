@@ -254,3 +254,7 @@
 
   .about-highlight + .about-highlight { border-inline-start: 1px solid var(--white-alpha-10); }
 }
+
+
+/* FAQ at the end of the About page */
+.about-faq .section-title { margin-block-end: 40px; }

@@ -2344,7 +2344,7 @@ body:has(.not-found) { overflow-y: auto; }
 
 
 /*-----------------------------------*\
-  #SEO HELPERS: hidden heading, breadcrumbs, local guide
+  #SEO HELPERS: hidden heading, breadcrumbs
 \*-----------------------------------*/
 
 .sr-only {
@@ -2388,64 +2388,6 @@ body:has(.not-found) { overflow-y: auto; }
 
 .breadcrumbs [aria-current="page"] { color: var(--gold-crayola); }
 
-.local-guide-summary {
-  max-width: 760px;
-  margin-inline: auto;
-  margin-block-end: 40px;
-  text-align: center;
-}
-
-.local-facts {
-  display: grid;
-  gap: 14px;
-  max-width: 980px;
-  margin-inline: auto;
-  margin-block-end: 60px;
-}
-
-.local-fact {
-  padding: 18px 22px;
-  border: 1px solid var(--white-alpha-10);
-  border-radius: 16px;
-  background-color: var(--eerie-black-2);
-  text-align: left;
-}
-
-.local-fact dt {
-  color: var(--gold-crayola);
-  margin-block-end: 6px;
-}
-
-.local-fact dd {
-  color: var(--white);
-  line-height: var(--lineHeight-4);
-}
-
-.local-fact a,
-.local-guide-links a {
-  display: inline;
-  color: var(--gold-crayola);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-.local-faq-title {
-  color: var(--white);
-  margin-block-end: 30px;
-}
-
-.local-guide-links {
-  margin-block-start: 34px;
-  color: var(--quick-silver);
-}
-
-@media (min-width: 576px) {
-  .local-facts { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (min-width: 992px) {
-  .local-facts { grid-template-columns: repeat(3, 1fr); }
-}
 
 
 /*-----------------------------------*\

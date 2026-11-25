@@ -14,13 +14,16 @@ function resolveSiteUrl(): string {
 export const SITE_URL = resolveSiteUrl();
 
 export const SEO = {
-  name: "Dawat Restaurant",
-  title: "Dawat Restaurant – Best Restaurant in Kheda | Mughlai & BBQ",
+  // "Kheda" keeps this restaurant apart from other restaurants called Dawat in search.
+  name: "Dawat Restaurant Kheda",
+  title: "Dawat Restaurant Kheda – Best Restaurant on NH-8 Highway",
   description:
     "Best restaurant in Kheda on the Ahmedabad highway (NH-8), near Nadiad: Mughlai, charcoal BBQ, Raan Biryani & seafood. Free parking. Open daily 1 PM–1 AM.",
   keywords: [
-    "Dawat Restaurant",
     "Dawat Restaurant Kheda",
+    "Dawat Restaurant Kajipura",
+    "Dawat Restaurant NH-8",
+    "Dawat Restaurant",
     "best restaurant in Kheda",
     "top restaurant in Kheda",
     "restaurant in Kheda",

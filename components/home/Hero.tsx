@@ -33,7 +33,7 @@ export default function Hero() {
     <section className="hero text-center" aria-labelledby="home-title" id="home">
       {/* The page's main heading for search engines and screen readers; the slides keep their look. */}
       <h1 className="sr-only" id="home-title">
-        Dawat Restaurant – Best Family Restaurant in Kheda, Gujarat on NH-8
+        Dawat Restaurant Kheda – Best Family Restaurant on NH-8, Kajipura, Gujarat
       </h1>
       <ul className="hero-slider">
         {heroSlides.map((slide, i) => {

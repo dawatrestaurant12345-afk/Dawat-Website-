@@ -6,6 +6,8 @@ import { IoCallOutline, IoLocationOutline, IoTimeOutline } from "react-icons/io5
 import { ButtonLink, SectionHeading } from "@/components/Button";
 import Facilities from "@/components/Facilities";
 import Features from "@/components/home/Features";
+import FaqList from "@/components/FaqList";
+import { getAboutFaqs } from "@/lib/faq";
 import { getAbout, getSite } from "@/lib/content";
 import { primaryTel, telHref } from "@/lib/site";
 import "./about.css";
@@ -174,6 +176,14 @@ export default async function AboutPage() {
               referrerPolicy="no-referrer-when-downgrade"
             />
           </div>
+        </div>
+      </section>
+
+      {/* Common questions (also sent to Google as FAQPage data) */}
+      <section className="section about-faq" aria-labelledby="about-faq-label">
+        <div className="container">
+          <SectionHeading subtitle="Good To Know" title="Frequently Asked Questions" id="about-faq-label" center />
+          <FaqList faqs={getAboutFaqs(site)} />
         </div>
       </section>
     </>

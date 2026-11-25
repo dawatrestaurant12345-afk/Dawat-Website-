@@ -3,9 +3,9 @@ import type { Site } from "./site";
 
 /**
  * Questions people search for on Google ("best restaurant in Kheda", "restaurant near
- * Ahmedabad on highway"…). Shown on the home page and sent to Google as FAQPage data.
+ * Ahmedabad on highway"…). Shown on the About page and sent to Google as FAQPage data.
  */
-export const getHomeFaqs = (site: Site): Faq[] => [
+export const getAboutFaqs = (site: Site): Faq[] => [
   {
     q: "Which is the best family restaurant in Kheda?",
     a: `${site.name} on NH-8 at Kajipura, Kheda is a favourite with families for authentic Mughlai food, charcoal BBQ, Raan Biryani and seafood. It has an AC hall, garden and rooftop seating, a kids play area and free parking, and is open every day from ${site.hours}.`,

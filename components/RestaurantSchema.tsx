@@ -15,7 +15,8 @@ export default function RestaurantSchema({ site }: { site: Site }) {
     "@type": "Restaurant",
     "@id": RESTAURANT_ID,
     name: site.name,
-    alternateName: ["Dawat Restaurant Kheda", "Dawat Kheda", "Dawat Restaurant Kajipura"],
+    alternateName: ["Dawat Restaurant Kheda", "Dawat Restaurant Kajipura", "Dawat Restaurant NH-8 Kheda", "Dawat Kheda"],
+    disambiguatingDescription: "The Dawat Restaurant on NH-8 at Kajipura, Kheda, Gujarat 387120.",
     url: SITE_URL,
     image: [
       absoluteUrl("/opengraph-image"),
@@ -69,9 +70,9 @@ export default function RestaurantSchema({ site }: { site: Site }) {
     "@type": "WebSite",
     "@id": `${SITE_URL}/#website`,
     url: SITE_URL,
-    // The site name Google shows above results ("Dawat Restaurant").
-    name: site.name,
-    alternateName: ["Dawat Restaurant Kheda", "Dawat Kheda"],
+    // The site name Google shows above results; "Kheda" sets it apart from other "Dawat" restaurants.
+    name: SEO.name,
+    alternateName: [site.name, "Dawat Kheda", "dawatrestaurant-kheda.com"],
     inLanguage: "en-IN",
     publisher: { "@id": RESTAURANT_ID },
   };

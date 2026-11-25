@@ -1,5 +1,5 @@
 import { getMenu, getSite } from "@/lib/content";
-import { getHomeFaqs } from "@/lib/faq";
+import { getAboutFaqs } from "@/lib/faq";
 import { absoluteUrl } from "@/lib/schema";
 import { LISTINGS } from "@/lib/site";
 
@@ -35,7 +35,7 @@ export async function GET() {
     "",
     "## FAQ",
     "",
-    ...getHomeFaqs(site).flatMap(({ q, a }) => [`### ${q}`, "", a, ""]),
+    ...getAboutFaqs(site).flatMap(({ q, a }) => [`### ${q}`, "", a, ""]),
     "## Optional",
     "",
     `- [Privacy Policy](${absoluteUrl("/privacy-policy")})`,
