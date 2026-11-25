@@ -1,5 +1,5 @@
 import JsonLd from "./JsonLd";
-import type { Site } from "@/lib/site";
+import { LISTINGS, type Site } from "@/lib/site";
 import { SEO, SITE_URL } from "@/lib/seo";
 import { RESTAURANT_ID, absoluteUrl } from "@/lib/schema";
 
@@ -9,7 +9,7 @@ import { RESTAURANT_ID, absoluteUrl } from "@/lib/schema";
  * Only real details from the restaurant settings are used — no invented ratings or reviews.
  */
 export default function RestaurantSchema({ site }: { site: Site }) {
-  const sameAs = [site.social.facebook, site.social.instagram, site.social.maps].filter(Boolean);
+  const sameAs = [site.social.facebook, site.social.instagram, site.social.maps, LISTINGS.justdial].filter(Boolean);
 
   const restaurant = {
     "@type": "Restaurant",

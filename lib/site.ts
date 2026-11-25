@@ -148,3 +148,11 @@ export function mergeWithDefaults<T>(defaults: T, saved: unknown): T {
   }
   return (typeof saved === typeof defaults && saved !== "" ? saved : defaults) as T;
 }
+
+/**
+ * The restaurant's listings on other sites. Linking to them (and naming them in the
+ * schema "sameAs") tells Google these profiles and this website are the same business.
+ */
+export const LISTINGS = {
+  justdial: "https://www.justdial.com/DT-996AIAEUQAM",
+} as const;

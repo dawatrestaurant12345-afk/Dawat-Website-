@@ -2446,3 +2446,18 @@ body:has(.not-found) { overflow-y: auto; }
 @media (min-width: 992px) {
   .local-facts { grid-template-columns: repeat(3, 1fr); }
 }
+
+
+/*-----------------------------------*\
+  #DAWAT NOTE (home) — review links
+\*-----------------------------------*/
+
+.testi .section-subtitle { margin-block-end: 20px; }
+
+.testi-reviews {
+  margin-block-start: 34px;
+  padding-block-start: 26px;
+  border-block-start: 1px solid var(--white-alpha-10);
+}
+
+.testi-reviews-text { color: var(--quick-silver); }

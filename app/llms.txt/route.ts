@@ -1,6 +1,7 @@
 import { getMenu, getSite } from "@/lib/content";
 import { getHomeFaqs } from "@/lib/faq";
 import { absoluteUrl } from "@/lib/schema";
+import { LISTINGS } from "@/lib/site";
 
 /** /llms.txt — a plain summary of the restaurant for AI assistants and AI search. */
 export const revalidate = 300;
@@ -17,6 +18,7 @@ export async function GET() {
     `- Phone: ${site.phones.primary.label} (primary), ${site.phones.secondary.label} (bookings)`,
     `- Hours: every day, ${site.hours}`,
     `- Google Maps: ${site.social.maps}`,
+    `- Justdial: ${LISTINGS.justdial}`,
     "",
     "## Pages",
     "",

@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ButtonLink } from "./Button";
 import { getSite } from "@/lib/content";
-import { primaryTel, telHref } from "@/lib/site";
+import { LISTINGS, primaryTel, telHref } from "@/lib/site";
 
 const pageLinks = [
   { href: "/", label: "Home" },
@@ -29,6 +29,7 @@ export default async function Footer() {
     { href: site.social.instagram, label: "Instagram" },
     { href: site.whatsapp, label: "WhatsApp" },
     { href: site.social.maps, label: "Google Map Location" },
+    { href: LISTINGS.justdial, label: "Justdial" },
   ];
 
   return (
